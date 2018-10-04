@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de login do CtrlApp</title>
+
+    <link rel='stylesheet' href='/libs/uikit/uikit.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/cores.css' />
+    <link rel='stylesheet' href='/stylesheets/acessibilidade.css' />
+
+
+</head>
+<body>
+
+    <ul>
+        <li><a href="#top" accesskey="1">Ir para o Conteúdo Principal [Alt + 1]</a></li>
+        <li><a href="#menu" accesskey="2">Início do Menu [Alt + 2]</a></li>
+        <li><a href="#altocontraste" id="altocontraste" accesskey="3" onclick="window.toggleContrast()" onkeydown="window.toggleContrast()">Alto contraste [Alt + 3]</a></li>
+    </ul>
+
+    <form method="POST" class="uk-position-center uk-padding-small" id="userForm">
+        <div class="uk-width-large">
+            <div class="uk-margin">
+                <label class="uk-form-label" for="username">Usuário</label>
+                <div class="uk-form-controls uk-width-expand">
+                    <input class="uk-input" id="username" type="text" placeholder="Username">
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label" for="password">Senha</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="password" type="text" placeholder="Password">
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <button class="uk-button uk-button-default uk-align-center ctrl-button-primary uk-width-1-2">Entrar</button>
+            </div>
+
+            <div class="uk-margin uk-width-expand uk-display-inline">
+                <a class="uk-float-left" href="">Cadastre-se</a>
+                <a class="uk-float-right" href="">Esqueceu sua senha?</a> 
+            </div>
+        </div>
+    </form>
+
+    <script src="/libs/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="/libs/uikit/uikit.min.js"></script>
+    <script src="/javascripts/acessibilidade.js"></script>
+
+</body>
+</html>

@@ -3,15 +3,22 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
     "express": "~4.16.0",
+    "express-force-https": "^1.0.0",
+    "express-session": "^1.15.6",
     "http-errors": "~1.6.2",
-    "morgan": "~1.9.0"
+    "morgan": "~1.9.0",
+    "mosca": "^2.8.3",
+    "mqtt": "^2.18.8",
+    "pg-promise": "^8.4.6",
+    "uikit": "^3.0.0-rc.17",
+    "window": "^4.2.5"
   },
   "description": "Projeto desenvolvido pela equipe Wave em parceria com a Equipe Cyber na cadeira de Projeto Integrado II do Curso de Sistemas e Mídias Digitais da Universidade Federal do Ceará.",
   "main": "app.js",
