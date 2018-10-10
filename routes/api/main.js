@@ -11,3 +11,6 @@ var express = require('express');
 var router = express.Router();
 
 //TODO: Require no resto dos middlewares da API.
+
+
+module.exports = router;

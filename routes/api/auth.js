@@ -12,10 +12,14 @@ const secret = require('../../secret/secret');
  * Verifica o token se ele é válido ou não.
  * Espera que authToken seja passado como parametro nas requisicoes.
  */
+
+
+ 
 function verifyToken(req, res, next){
     const authToken = req.body.authToken || req.query.authToken;
     try{
         var decoded = jwt.verify(authToken, secret);
+        //asdo
         req.isAuthenticated = true;
         req.currentUser = decoded;
     } catch(err){
@@ -24,4 +28,6 @@ function verifyToken(req, res, next){
     }
     next();
 }
+
+module.exports = verifyToken;
 
