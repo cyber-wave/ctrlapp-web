@@ -1,5 +1,5 @@
 var pgp = require("pg-promise")();
-var db = pgp('postgres://ctrlapp:15987538555554@localhost:5432/ctrlapp');
+var db = pgp('postgres://ctrlapp:cyberwave@localhost:5432/ctrlapp');
 var Usuario = require('./usuario');
 
 class UsuarioDAO{
@@ -20,16 +20,23 @@ class UsuarioDAO{
     /**
      * Função que pega um usuário do banco
      * @param {String} login Login do usuário cadastrado
-     * @returns Uma promise com um usuário pendente
+     * @returns Uma promise com um usuário pendente. Modelo no banco de dados.
      */
      static async getUsuario(login){
-        var data = await db.one("SELECT * FROM usuario WHERE usuario.login = $1",login)
-        
-        if(!data){
-            //o usuario nao existe
-            throw new Error("Usuário não existe.");
+        try{
+            var data = await db.one("SELECT * FROM usuario NATURAL JOIN aluno WHERE usuario.login = $1",[login]);
+            if(!data){
+                //o usuario nao existe
+                throw new Error("Usuário não existe.");
+            }
+            return data;
+        } catch (error){
+            console.log(`Erro! ${error}`);
+            return undefined;
         }
-        return new Usuario(data.login, data.email, data.senha, data.msg_id);
+        
+        
+        
         
     }
 }

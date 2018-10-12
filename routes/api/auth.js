@@ -16,17 +16,33 @@ const secret = require('../../secret/secret');
 
  
 function verifyToken(req, res, next){
-    const authToken = req.body.authToken || req.query.authToken;
+    /**
+     * O token vem no header da requisição HTTP.
+     * Authorization: Bearer ofghbpauiorebnuipuaw1kln241oi2n4nm1ç24n6on48j5
+     */
+    console.log(req.headers);
+    const authToken = req.headers.authorization.split(" ")[1];
+    console.log(authToken);
+
     try{
         var decoded = jwt.verify(authToken, secret);
+     
         //asdo
-        req.isAuthenticated = true;
-        req.currentUser = decoded;
+        req.userData = {
+            isAuthenticated: true,
+            currentUser: decoded
+        }
+        next();
     } catch(err){
-        req.isAuthenticated = false;
-        req.currentUser = undefined;
+        req.userData = {
+            isAuthenticated: false,
+            currentUser: undefined
+        }
+        res.status(401).json({
+            error: "Auth invalid"
+        });
     }
-    next();
+    //next();
 }
 
 module.exports = verifyToken;

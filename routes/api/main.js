@@ -9,8 +9,13 @@
 
 var express = require('express');
 var router = express.Router();
+var messaging = require('./messaging');
+var loginRouter = require('./login');
 
 //TODO: Require no resto dos middlewares da API.
+router.use('/login', loginRouter);
+router.use('/messaging', messaging);
+
 
 
 module.exports = router;

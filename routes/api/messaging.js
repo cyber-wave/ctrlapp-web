@@ -12,25 +12,22 @@ var firebase = require('../../secret/firebase');
 var router = express.Router();
 
 
-router.use(auth);
+//router.use(auth);
 
-router.post('/:topic', (req, res, next) => {
-    var topic = req.query.topic || req.body.topic;
-    var currentUser = req.currentUser;
-    if(currentUser.type === "professor" && currentUser.username === topic){
-        //envie a mensagem
-        next();
-    } else {
-        //retorne um erro de autenticação.
-        res.sendStatus(401);
-    }
+router.post('/:topic', auth, (req, res, next) => {
+    var topic = req.params.topic;
+    var currentUser = req.userData.currentUser;
+    console.log(`User ${currentUser.name} tried to send message to topic ${topic}`);
+    res.status(201).json({
+        message: `User ${currentUser.nome} tried to send message to topic ${topic}`
+    });
 });
 
-router.post('/:topic', (req, res, next) => {
+/*router.post('/:topic', (req, res, next) => {
     var topic = req.query.topic || req.body.topic;
     var message = req.message;
     firebase.messaging().send({
-        android:{
+        android: {
             collapseKey: topic,
             ttl
         },
@@ -39,14 +36,14 @@ router.post('/:topic', (req, res, next) => {
             title: message.title
         },
         topic: topic
-    }).then( () => {
+    }).then(() => {
         console.log("Enviada mensagem para topico: " + topic);
         res.sendStatus(201);
-    }).catch(e =>{
+    }).catch(e => {
         console.log("Erro ao enviar mensagem: " + e);
         res.sendStatus(500);
     })
-})
+})*/
 
 
 
