@@ -10,12 +10,14 @@ var AlunoSchema = new mongoose.Schema({
     nome: String,
     email: String,
     cpf: String,
-    matricula: String,
+    matricula: {type: String, unique: true},
     tokenFCM: String, //token usado pelo FCM para enviar push notification
-    topicosInscritos: [String],
+    topicosInscritos: {type: [String], default: [] },
     cadastroCompleto: Boolean, //indica se o aluno realizou o cadastro completo
-    senha: String, 
-    ativo: Boolean //indica se o aluno está ativo i.e. pode fazer login ou nao
+    senha: String,
+    login: {type: String, unique: true}, 
+    ativo: {type: Boolean, default: true} //indica se o aluno está ativo i.e. pode fazer login ou nao
 });
 
 var AlunoModel = connect_db.model("Aluno", AlunoSchema);
+module.exports = AlunoModel;

@@ -9,32 +9,42 @@ var express = require('express');
 var router = express.Router();
 var jwt = require('jsonwebtoken');
 var secret = require('../../secret/secret');
-var UsuarioDAO = require('../../models/usuario/usuarioDAO');
+//var UsuarioDAO = require('../../models/usuario/usuarioDAO');
+var AlunoDAO = require('../../models/aluno/alunoDAO');
 
 router.post('/aluno', verifyAluno, (req, res, next) =>{
     const login = req.body.login;
     const pw = req.body.password;
     console.log(req.body);
-    
-    UsuarioDAO.getUsuario(login).then(usuario =>{
+    AlunoDAO.findOne({login: login}).exec().then(usuario =>{
         if(usuario.senha === pw){
             //usuario autenticado, retorne um token novo
             var user = {
-                username: usuario.login,
+                login: usuario.login,
                 email: usuario.email,
-                name: usuario.nome,
-                matricula: usuario.matricula,
+                nome: usuario.nome,
+                matricula: usuario.matricula
             }
             var options = {
-                expiresIn: '2 days'
+                expiresIn: '7 days'
             }
             var token = jwt.sign(user, secret, options);
             res.status(200).json({
                 status: "ok",
                 token: token
             });
+        } else {
+            //senha errada
+            res.status(401).json({
+                mensagem: "Usuario ou senha incorretos"
+            })
         }
-    })
+    }).catch(err => {
+        //falhou
+        res.status(404).json({
+            mensagem: "Usuario nao existe"
+        })
+    });
 })
 
 router.post('/professor', (req, res, next) => {

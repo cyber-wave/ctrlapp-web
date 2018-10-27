@@ -9,6 +9,7 @@
 var express = require('express');
 var auth = require('./auth');
 var firebase = require('../../secret/firebase');
+var MessageDAO = require('../../models/message/message');
 var router = express.Router();
 
 
@@ -29,6 +30,9 @@ router.post('/:topic', auth, (req, res, next) => {
 router.post('/:topic', (req, res, next) => {
     var topic = req.query.topic || req.body.topic;
     var message = req.message;
+
+    MessageDAO.cr
+
     firebase.messaging().send({
         android: {
             collapseKey: topic

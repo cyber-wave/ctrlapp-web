@@ -7,21 +7,16 @@
  * Classe de modelo para Message.
  */
 
- class Message{
-     constructor(title, body){
-        var _title = title;
-        var _body = body;
-        this.getTitle = function(){ return _title; }
-        this.getBody = function(){ return _body; }
+var mongoose = require('mongoose');
+var connect_db = require('../mongoConnect');
 
-        this.setTitle = function(title){
-            _title = title;
-        }
+var MessageSchema = new mongoose.Schema({
+    titulo: String,
+    corpo: String, 
+    topico: String,
+    img: String // base64 ou um caqminho para diretorio??
+}, {timestamps: true});
 
-        this.setBody = function(body){
-            _body = body;
-        }
-     }
+var MessageModel = connect_db.model("Noticia", MessageSchema);
 
-
- }
+module.exports = MessageModel;
