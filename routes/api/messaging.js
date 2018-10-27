@@ -18,18 +18,20 @@ router.post('/:topic', auth, (req, res, next) => {
     var topic = req.params.topic;
     var currentUser = req.userData.currentUser;
     console.log(`User ${currentUser.name} tried to send message to topic ${topic}`);
+    
     res.status(201).json({
-        message: `User ${currentUser.nome} tried to send message to topic ${topic}`
+        message: `User ${currentUser.name} tried to send message to topic ${topic}`
     });
+
+    //TODO: Apenas professores e alunos especiais podem realizar mensagens a topicos
 });
 
-/*router.post('/:topic', (req, res, next) => {
+router.post('/:topic', (req, res, next) => {
     var topic = req.query.topic || req.body.topic;
     var message = req.message;
     firebase.messaging().send({
         android: {
-            collapseKey: topic,
-            ttl
+            collapseKey: topic
         },
         notification: {
             body: message.body,
@@ -43,7 +45,7 @@ router.post('/:topic', auth, (req, res, next) => {
         console.log("Erro ao enviar mensagem: " + e);
         res.sendStatus(500);
     })
-})*/
+});
 
 
 
