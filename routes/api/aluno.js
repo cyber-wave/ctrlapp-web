@@ -58,8 +58,6 @@ router.post("/:matricula/update", (req, res, next) => {
     var modified = {};
     console.log(req.body);
     for(field in req.body){
-        console.log(field);
-        
         modified[field] = req.body[field];
     }
     AlunoDAO.findOneAndUpdate({matricula: req.params.matricula},{ $set: modified}).exec()

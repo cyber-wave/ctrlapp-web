@@ -14,8 +14,9 @@ var MessageSchema = new mongoose.Schema({
     titulo: String,
     corpo: String, 
     topico: String,
-    img: String // base64 ou um caqminho para diretorio??
-}, {timestamps: true});
+    img: String, // base64 ou um caqminho para diretorio??
+    timestamp: {type: Date, default: Date.now()}
+},);
 
 var MessageModel = connect_db.model("Noticia", MessageSchema);
 
