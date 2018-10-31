@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
  
 
 var LaboratorioSchema = new mongoose.Schema({
-    nome: String
+    nome: {type: String, required: true, unique: true}
 });
 
 var LaboratorioModel = connect_db.model("Laboratorio", LaboratorioSchema);

@@ -11,13 +11,8 @@ var EventoSchema = new mongoose.Schema({
     descricao: {type: String, default: "Descrição não informada"},
     horarioInicio: {type : String, required: true},
     horarioFim: {type : String, required: true},
-    dataInicio: {type : Date, required: true},
-    dataFim: {type : Date, required: true},
-    duracaoDias: Number,
-    duracaoHoras: Number,
-    diasDaSemana: [Number],
-    recorrente: Boolean,
-    local: {type : ObjectId, required: true} //id do laboratorio
+    dia: {type : Date, required: true},
+    local: {type : mongoose.Types.ObjectId, required: true} //id do laboratorio
 });
 
 var EventoModel = connect_db.model("Evento", EventoSchema);
