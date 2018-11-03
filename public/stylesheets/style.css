@@ -13,7 +13,10 @@
   padding-left: 300px;
 }
 
-
 .spread-button-width{
   width:250px;
+}
+
+.sidenav li > a > i, .sidenav li > a > [class^="mdi-"], .sidenav li > a li > a > [class*="mdi-"], .sidenav li > a > i.material-icons {
+  margin: 0 20px 0 0;
 }
