@@ -1,64 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de login do CtrlApp</title>
-
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel='stylesheet' href='/libs/materialize/css/materialize.min.css' />
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/stylesheets/menu.css' />
-    <link rel='stylesheet' href='/stylesheets/cores.css' />
-    <link rel='stylesheet' href='/stylesheets/acessibilidade.css' />
-
-
+<% include ../public/fragments/header %>
+<link rel='stylesheet' href='/stylesheets/login.css' />
 </head>
+
 
 <body>
 
 
+    <% include ../public/fragments/nav %>
 
-
-    <nav>
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
-        <ul class="left hide-on-med-and-down">
-            <li><a href="#content" accesskey="1">Ir para o Conteúdo Principal [Alt + 1]</a></li>
-            <li><a href="#slide-out" accesskey="2">Início do Menu [Alt + 2]</a></li>
-            <li><a href="#rodape" accesskey="3">Ir para o rodapé [Alt + 3]</a></li>
-        </ul>
-
-        <ul class="right hide-on-med-and-down">
-            <li><a href="#altocontraste" id="altocontraste" onclick="window.toggleContrast()" onkeydown="window.toggleContrast()">ALTO
-                    CONTRASTE</a></li>
-            <li><a href="#">ACESSIBILIDADE</a></li>
-            <li><a href="#">MAPA DO SITE</a></li>
-        </ul>
-    </nav>
-
-    <ul id="slide-out" class="sidenav sidenav-fixed" style="transform: translateX(0px);">
-
-        <li class="logo">
-            <a id="logo-container" class="brand-logo">
-                <img id="front-page-logo" src="images/logo.png" />
-            </a>
-        </li>
-
-        <li>
-            <div class="divider"></div>
-        </li>
-
-        <li class="bold"><a href="#" class="waves-effect waves-teal">Novo aviso</a></li>
-        <li class="bold"><a href="#" class="waves-effect waves-teal">Acesso aos laboratórios</a></li>
-        <li class="bold"><a href="#" class="waves-effect waves-teal">Requisições dos alunos</a></li>
-    </ul>
-
-
-
+    <!--
+    <% include ../public/fragments/sidebar %>
+    -->
 
 
     <div id="content">
@@ -69,7 +24,7 @@
                     <div class="row">
                         <div class="input-field">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="username" name="username" type="text" class="validate">
+                            <input id="login" name="login" type="text" class="validate">
                             <label for="username">Usuário</label>
                         </div>
                     </div>
@@ -77,7 +32,7 @@
                     <div class="row">
                         <div class="input-field">
                             <i class="material-icons prefix">lock</i>
-                            <input id="password" name="password" type="password" class="validate">
+                            <input id="senha" name="senha" type="password" class="validate">
                             <label for="password">Senha</label>
                         </div>
                     </div>
@@ -100,9 +55,7 @@
 
 
 
-        <script src="/libs/jQuery/jquery-3.3.1.min.js"></script>
-        <script src="/libs/materialize/js/materialize.min.js"></script>
-        <script src="/javascripts/acessibilidade.js"></script>
+        <% include ../public/fragments/javascripts %>
         <script src="/javascripts/login.js"></script>
 
 </body>

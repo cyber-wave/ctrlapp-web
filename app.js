@@ -7,11 +7,9 @@ var secure = require('express-force-https');
 var session = require('express-session');
 
 
-
-var indexRouter = require('./routes/index');
+var noticiasRouter = require('./routes/noticias');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
-
 var apiRouter = require('./routes/api/main');
 
 var app = express();
@@ -36,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //ROUTES
-app.use('/', loginRouter);
+app.use('/', noticiasRouter);
 app.use('/users', usersRouter);
 app.use('/api', apiRouter); //mobile
 
