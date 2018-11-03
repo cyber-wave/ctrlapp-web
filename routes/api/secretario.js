@@ -6,6 +6,19 @@ var SecretarioDAO = require('../../models/secretario/secretarioDAO');
 /**
  * Pega um secretario informando o login
  */
+
+router.get('/', (req, res, next) => {
+    SecretarioDAO.find({}).exec()
+    .then(secretarios => {
+        res.status(200).json(secretarios);
+    })
+    .catch( err => {
+        res.status(500).json({
+            mensagem: "Erro ao obter secretarios",
+            causa: err
+        })
+    })
+})
 router.get("/:login", (req, res, next) => {
     const login = req.params.login;
     var dbResult = SecretarioDAO.findOne({
