@@ -1,34 +1,33 @@
+/*
+PALETA DE CORES
 
+#25ced1
+#ffffff
+#fde9dd
+#ff8b5c
+#eb5270
 
-/* PRIMÁRIA */
-/* #367d9b */
+*/
 
+/*
 a:active, a:focus, a:hover {  
-    border
-    : 1px solid #000;  
+    border: 1px solid #000;  
 }
+*/
 
-a{
-    
-}
-
-
-.ctrl-button-primary{
-    background-color: #367d9b;
+.spread-button-primary{
+    background-color: #25ced1;
     color: #EFEFEF;
-    border: 1px solid #367d9b;
+    border: 1px solid #25ced1;
 }
 
-.ctrl-button-primary:hover, .ctrl-button-primary:active, .ctrl-button-primary:focus{
-    background-color: #4097bd;
+.spread-button-primary:hover, .spread-button-primary:active, .spread-button-primary:focus{
+    background-color: #50e0e2;
     color: #EFEFEF;
-    border: 1px solid #4097bd;
+    border: 1px solid #50e0e2;
 }
 
 
-#userForm{
-    background-color: #CCC;
-}
 
 
 

@@ -7,51 +7,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de login do CtrlApp</title>
 
-    <link rel='stylesheet' href='/libs/uikit/uikit.min.css' />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel='stylesheet' href='/libs/materialize/css/materialize.min.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/menu.css' />
     <link rel='stylesheet' href='/stylesheets/cores.css' />
     <link rel='stylesheet' href='/stylesheets/acessibilidade.css' />
 
 
 </head>
+
 <body>
 
-    <ul>
-        <li><a href="#top" accesskey="1">Ir para o Conteúdo Principal [Alt + 1]</a></li>
-        <li><a href="#menu" accesskey="2">Início do Menu [Alt + 2]</a></li>
-        <li><a href="#altocontraste" id="altocontraste" accesskey="3" onclick="window.toggleContrast()" onkeydown="window.toggleContrast()">Alto contraste [Alt + 3]</a></li>
+
+
+
+    <nav>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+        <ul class="left hide-on-med-and-down">
+            <li><a href="#content" accesskey="1">Ir para o Conteúdo Principal [Alt + 1]</a></li>
+            <li><a href="#slide-out" accesskey="2">Início do Menu [Alt + 2]</a></li>
+            <li><a href="#rodape" accesskey="3">Ir para o rodapé [Alt + 3]</a></li>
+        </ul>
+
+        <ul class="right hide-on-med-and-down">
+            <li><a href="#altocontraste" id="altocontraste" onclick="window.toggleContrast()" onkeydown="window.toggleContrast()">ALTO
+                    CONTRASTE</a></li>
+            <li><a href="#">ACESSIBILIDADE</a></li>
+            <li><a href="#">MAPA DO SITE</a></li>
+        </ul>
+    </nav>
+
+    <ul id="slide-out" class="sidenav sidenav-fixed" style="transform: translateX(0px);">
+
+        <li class="logo">
+            <a id="logo-container" class="brand-logo">
+                <img id="front-page-logo" src="images/logo.png" />
+            </a>
+        </li>
+
+        <li>
+            <div class="divider"></div>
+        </li>
+
+        <li class="bold"><a href="#" class="waves-effect waves-teal">Novo aviso</a></li>
+        <li class="bold"><a href="#" class="waves-effect waves-teal">Acesso aos laboratórios</a></li>
+        <li class="bold"><a href="#" class="waves-effect waves-teal">Requisições dos alunos</a></li>
     </ul>
 
-    <form method="POST" class="uk-position-center uk-padding-small" id="userForm">
-        <div class="uk-width-large">
-            <div class="uk-margin">
-                <label class="uk-form-label" for="username">Usuário</label>
-                <div class="uk-form-controls uk-width-expand">
-                    <input class="uk-input" id="username" type="text" placeholder="Username">
-                </div>
-            </div>
 
-            <div class="uk-margin">
-                <label class="uk-form-label" for="password">Senha</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="password" type="text" placeholder="Password">
-                </div>
-            </div>
 
-            <div class="uk-margin">
-                <button class="uk-button uk-button-default uk-align-center ctrl-button-primary uk-width-1-2">Entrar</button>
-            </div>
 
-            <div class="uk-margin uk-width-expand uk-display-inline">
-                <a class="uk-float-left" href="">Cadastre-se</a>
-                <a class="uk-float-right" href="">Esqueceu sua senha?</a> 
+
+    <div id="content">
+        <div class="row section">
+            <div class="col s12 ">
+                <form method="POST" class="col s4 offset-s4" id="userForm">
+
+                    <div class="row">
+                        <div class="input-field">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="username" name="username" type="text" class="validate">
+                            <label for="username">Usuário</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field">
+                            <i class="material-icons prefix">lock</i>
+                            <input id="password" name="password" type="password" class="validate">
+                            <label for="password">Senha</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <a class="left spread-link-login" href="">Cadastre-se</a>
+                        <a class="right spread-link-login" href="">Esqueceu sua senha?</a>
+                    </div>
+
+                    <div class="row center-align">
+                        <a class="btn waves-effect spread-button-primary uk-width-1-2 spread-button-width">Entrar</a>
+                    </div>
+
+
+
+                </form>
             </div>
         </div>
-    </form>
 
-    <script src="/libs/jQuery/jquery-3.3.1.min.js"></script>
-    <script src="/libs/uikit/uikit.min.js"></script>
-    <script src="/javascripts/acessibilidade.js"></script>
+
+
+
+        <script src="/libs/jQuery/jquery-3.3.1.min.js"></script>
+        <script src="/libs/materialize/js/materialize.min.js"></script>
+        <script src="/javascripts/acessibilidade.js"></script>
+        <script src="/javascripts/login.js"></script>
 
 </body>
+
 </html>

@@ -1,8 +1,19 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  font-family: 'Montserrat', sans-serif;
 }
 
-a {
-  color: #00B7FF;
+
+/* LOGIN */
+
+.spread-link-login{
+  text-decoration: underline;
+}
+
+#content{
+  padding-left: 300px;
+}
+
+
+.spread-button-width{
+  width:250px;
 }

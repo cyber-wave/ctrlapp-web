@@ -1,0 +1,53 @@
+ul.sidenav.sidenav-fixed li.logo {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.sidenav li > a{
+   color:#eb5270;
+}
+
+.sidenav li > a:hover{
+    background-color: #cbf4f0;
+}
+
+.sidenav li.logo > a:hover{
+    background-color: transparent;
+}
+
+#front-page-logo {
+    display: inline-block;
+    height: 100px;
+    width:auto;
+    pointer-events: none;
+}
+
+
+nav{
+    padding-left: 300px;
+}
+
+nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
+    height: 180px;
+    line-height: 40px;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    nav{
+        padding-left: 0px;
+    }
+}
+
+
+@media only screen and (max-width: 992px) {
+    nav{
+        padding-left: 0px;
+    }
+} 
