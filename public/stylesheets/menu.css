@@ -8,7 +8,8 @@ ul.sidenav.sidenav-fixed li.logo {
    color:#eb5270;
 }
 
-.sidenav li > a:hover{
+
+.sidenav li.active, .sidenav li > a:hover  {
     background-color: #cbf4f0;
 }
 
@@ -26,7 +27,7 @@ ul.sidenav.sidenav-fixed li.logo {
 
 nav{
     background-color: #f1879c;
-    background-image: url("../images/b1.png");
+    /*background-image: url("../images/b1.png");*/
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -34,20 +35,18 @@ nav{
     padding-left: 300px;
 }
 
-nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
+nav {
     height: 180px;
     line-height: 40px;
 }
 
 
 
-
-
-
-
 @media only screen and (max-width: 768px) {
     nav{
         padding-left: 0px;
+        height: 64px;
+        line-height: 64px;
     }
 }
 
@@ -55,5 +54,7 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
 @media only screen and (max-width: 992px) {
     nav{
         padding-left: 0px;
+        height: 64px;
+        line-height: 64px;
     }
 } 

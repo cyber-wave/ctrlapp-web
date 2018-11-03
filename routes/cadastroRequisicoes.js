@@ -4,8 +4,8 @@ var router = express.Router();
 
 
 router.get('/', function(req,res,next){
-    res.status(200).render('noticias',{
-        title: 'Envio de notícias'
+    res.status(200).render('cadastroRequisicoes',{
+        title: 'Cadastro de requisições'
     })
 });
 

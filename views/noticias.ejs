@@ -18,9 +18,39 @@
     <div id="content">
         <div class="row section">
             <div class="col s12 ">
+                <form method="POST" class="col s10 offset-s1 m6 offset-m3 l6 offset-l3" id="userForm">
 
-                
+                    <div class="row">
+                        <div class="input-field">
+                            <select name="topico">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Tópico</label>
+                        </div>
+                    </div>
 
+                    <div class="row">
+                        <div class="input-field">
+                            <input id="titulo" name="titulo" type="text" class="validate" data-length="60" maxlength="60">
+                            <label for="titulo">Título</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field">
+                            <textarea id="corpo" name="corpo" class="materialize-textarea" data-length="280" maxlength="280"></textarea>
+                            <label for="corpo">Corpo</label>
+                        </div>
+                    </div>
+
+                    <div class="row center-align">
+                        <a class="btn waves-effect spread-button-primary uk-width-1-2 spread-button-width">Enviar</a>
+                    </div>
+
+                </form>
             </div>
         </div>
     </div>
@@ -28,6 +58,7 @@
 
 
     <% include ../public/fragments/javascripts %>
+    <script src="/javascripts/noticias.js"></script>
 
 
 </body>

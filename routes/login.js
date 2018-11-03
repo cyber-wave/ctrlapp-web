@@ -4,7 +4,8 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
     if (!req.session.login) {
         res.render('login', {
-            error: req.body.error
+            error: req.body.error,
+            title: "Login do secretário"
         });
     }
 });

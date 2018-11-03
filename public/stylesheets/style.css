@@ -20,3 +20,31 @@
 .sidenav li > a > i, .sidenav li > a > [class^="mdi-"], .sidenav li > a li > a > [class*="mdi-"], .sidenav li > a > i.material-icons {
   margin: 0 20px 0 0;
 }
+
+
+ul#listaAcessibilidade li a, ul#listaAtalhos li a {
+  font-size: 12px;
+}
+
+ul#listaAcessibilidade li a{
+  text-decoration: underline;
+}
+
+ul#listaAtalhos{
+  height: 180px;
+  display: block;
+}
+
+
+@media only screen and (max-width: 768px) {
+  #content{
+      padding-left: 0px;
+  }
+}
+
+
+@media only screen and (max-width: 992px) {
+  #content{
+      padding-left: 0px;
+  }
+} 
