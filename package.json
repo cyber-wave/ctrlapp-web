@@ -20,6 +20,7 @@
     "morgan": "~1.9.0",
     "multer": "^1.4.1",
     "pg-promise": "^8.5.1",
+    "swagger-jsdoc": "^3.2.3",
     "window": "^4.2.5"
   },
   "description": "Projeto desenvolvido pela Equipe Wave em parceria com a Equipe Cyber na cadeira de Projeto Integrado II do Curso de Sistemas e Mídias Digitais da Universidade Federal do Ceará.",
@@ -33,5 +34,9 @@
   "bugs": {
     "url": "https://github.com/cyber-wave/ctrlapp-web/issues"
   },
-  "homepage": "https://github.com/cyber-wave/ctrlapp-web#readme"
+  "homepage": "https://github.com/cyber-wave/ctrlapp-web#readme",
+  "devDependencies": {
+    "esdoc": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0"
+  }
 }

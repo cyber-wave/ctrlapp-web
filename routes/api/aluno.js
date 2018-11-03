@@ -3,7 +3,9 @@ var auth = require('./auth');
 var router = express.Router();
 var AlunoDAO = require('../../models/aluno/alunoDAO');
 
-//pegar alunos
+/**
+ * Pega todos os alunos
+ */
 router.get("/", (req,res,next) =>{
     AlunoDAO.find({}).then( data =>{
         res.status(200).json(data);
@@ -12,7 +14,9 @@ router.get("/", (req,res,next) =>{
         res.sendStatus(500);
     });
 });
-
+/**
+ * Pega um aluno pela matricula
+ */
 router.get("/:matricula", (req, res, next) =>{
     AlunoDAO.findOne({matricula: req.params.matricula}).select("nome matricula topicosInscritos cadastroCompleto").exec()
     .then(data => {
@@ -23,7 +27,10 @@ router.get("/:matricula", (req, res, next) =>{
     });
 });
 
-//cadastrar alunos
+/**
+ * Realiza o precadastro do aluno
+ * Deve-se informar nome, matricula e cpf
+ */
 
 router.post("/", checarCPF, (req, res, next) => {
     AlunoDAO.create({
@@ -53,7 +60,12 @@ router.post("/", checarCPF, (req, res, next) => {
     });
 });
 
-//update aluno
+/**
+ * Atualiza o aluno informando sua matricula
+ * Não se pode alterar a matricula do aluno, pode causar inconsistencias no sistema
+ * @example POST "<endereco>/api/aluno/376952/update"
+ * @returns mensagem de sucesso
+ */
 router.post("/:matricula/update", (req, res, next) => {
     var modified = {};
     console.log(req.body);
@@ -74,6 +86,10 @@ router.post("/:matricula/update", (req, res, next) => {
     })
 })
 
+/**
+ * Deleta um aluno, informando a matricula
+ * @example POST "<endereco>/api/aluno/376952/delete"
+ */
 router.post("/:matricula/delete", (req, res, next) => {
     AlunoDAO.findOneAndDelete({matricula: req.params.matricula}).exec()
     .then(oldData => {
@@ -106,7 +122,8 @@ function checarCPF(req, res, next){
 }
 /**
  * Tirado de https://www.devmedia.com.br/validar-cpf-com-javascript/23916
- * @param {*} strCPF 
+ * @param {String} strCPF 
+ * @returns se o cpf é valido ou nao
  */
 function TestaCPF(CPF) {
     var Soma;
