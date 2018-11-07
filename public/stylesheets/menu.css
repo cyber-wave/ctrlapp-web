@@ -26,11 +26,7 @@ ul.sidenav.sidenav-fixed li.logo {
 
 
 nav{
-    background-color: #f1879c;
-    /*background-image: url("../images/b1.png");*/
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url("../images/b1.png");
     opacity: 0.5;
     padding-left: 300px;
 }

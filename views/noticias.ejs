@@ -4,29 +4,22 @@
 <% include ../public/fragments/header %>
 </head>
 
-
 <body>
-
-
     <% include ../public/fragments/nav %>
-
-
     <% include ../public/fragments/sidebar %>
-
-
 
     <div id="content">
         <div class="row section">
             <div class="col s12 ">
-                <form method="POST" class="col s10 offset-s1 m6 offset-m3 l6 offset-l3" id="userForm">
+                <form method="POST" class="col s10 offset-s1 m6 offset-m3 l6 offset-l3" id="userForm" action="/">
 
                     <div class="row">
                         <div class="input-field">
                             <select name="topico">
                                 <option value="" disabled selected>Selecione</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                                <option value="bolsas">Bolsas</option>
+                                <option value="gerais">Avisos gerais</option>
+                                <option value="estagio">Oportunidades de estágio</option>
                             </select>
                             <label>Tópico</label>
                         </div>
@@ -34,7 +27,7 @@
 
                     <div class="row">
                         <div class="input-field">
-                            <input id="titulo" name="titulo" type="text" class="validate" data-length="60" maxlength="60">
+                            <input id="titulo" name="titulo" type="text" data-length="60" maxlength="60">
                             <label for="titulo">Título</label>
                         </div>
                     </div>
@@ -47,7 +40,7 @@
                     </div>
 
                     <div class="row center-align">
-                        <a class="btn waves-effect spread-button-primary uk-width-1-2 spread-button-width">Enviar</a>
+                        <button type="submit" class="btn waves-effect spread-button-primary uk-width-1-2 spread-button-width">Enviar</button>
                     </div>
 
                 </form>
@@ -56,10 +49,8 @@
     </div>
 
 
-
     <% include ../public/fragments/javascripts %>
     <script src="/javascripts/noticias.js"></script>
-
 
 </body>
 
