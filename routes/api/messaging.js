@@ -28,18 +28,22 @@ router.post('/:topic', auth, (req, res, next) => {
 });
 
 router.post('/:topic', (req, res, next) => {
-    var topic = req.query.topic || req.body.topic;
-    var message = req.message;
-
-    MessageDAO.cr
+    var topic = req.params.topic || req.body.topic;
+    var titulo = req.body.titulo;
+    var corpo = req.body.corpo;
+    MessageDAO.create({
+        titulo: titulo,
+        corpo: corpo,
+        topico: topic,
+    })
 
     firebase.messaging().send({
         android: {
             collapseKey: topic
         },
         notification: {
-            body: message.body,
-            title: message.title
+            body: corpo,
+            title: titulo,
         },
         topic: topic
     }).then(() => {

@@ -29,6 +29,7 @@ router.post('/', (req, res, next) => {
     const titulo = req.body.titulo;
     const corpo = req.body.corpo;
     const topico = req.body.topico;
+    console.log(req.body);
 
     var params = {
         titulo: titulo,
@@ -36,7 +37,7 @@ router.post('/', (req, res, next) => {
         topico: topico
     };
 
-    var url = "http://localhost:3000/messaging/" + topico;
+    var url = "http://localhost:3000/api/noticia/" + topico;
     console.log(url);
 
     $.ajax({

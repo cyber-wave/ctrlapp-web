@@ -5,12 +5,12 @@ var MessageDAO = require('../../models/message/message');
 
 
 
-router.post('/', (req, res, next) => {
+router.post('/:topico', (req, res, next) => {
     const titulo = req.body.titulo;    
     const corpo = req.body.corpo;
     console.log(req.body);
     
-    const topico = req.query.topico || req.body.topico;
+    const topico = req.params.topico || req.body.topico;
     MessageDAO.create({ 
         titulo: titulo,
         corpo: corpo,
