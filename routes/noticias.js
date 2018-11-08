@@ -10,6 +10,13 @@ global.document = document;
 var $ = jQuery = require('jquery')(window);
 
 
+
+router.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 router.get('/', function (req, res, next) {
     res.status(200).render('noticias', {
         title: 'Envio de notícias'
@@ -32,21 +39,23 @@ router.post('/', (req, res, next) => {
     var url = "http://localhost:3000/messaging/" + topico;
     console.log(url);
 
-        $.ajax({
-            url: url,
-            type: 'POST',
-            data: params,
-            datatype: 'JSON',
-            success: function (data) { 
-               console.log("Deu muito bom!");
-            },
-            error: function (jqXHR, textStatus, errorThrown) { 
-               console.log("Deu muito ruim -" + errorThrown);
-            },
-            done: function(){
-                console.log("Terminei o AJAX");
-            }
-        });
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: params,
+        datatype: 'JSON',
+        success: function (data) {
+            console.log("Deu muito bom!");
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log("Deu muito ruim -" + errorThrown);
+        },
+        done: function () {
+            console.log("Terminei o AJAX");
+        }
+    });
+
+ 
 
 });
 
