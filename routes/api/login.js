@@ -17,7 +17,7 @@ router.post('/aluno', verify, (req, res, next) => {
     const login = req.body.login;
     const pw = req.body.senha;
     console.log(req.body);
-    AlunoDAO.findOne({ login: login }).exec().then(usuario => {
+    AlunoDAO.findOne({ email: login }).exec().then(usuario => {
         if (usuario.senha === pw) {
             //usuario autenticado, retorne um token novo
             var user = {
