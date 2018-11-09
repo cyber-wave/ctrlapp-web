@@ -33,7 +33,12 @@ router.post('/aluno', verify, (req, res, next) => {
             var token = jwt.sign(user, secret, options);
             res.status(200).json({
                 status: "ok",
-                token: token
+                token: token,
+                login: usuario.login,
+                email: usuario.email,
+                nome: usuario.nome,
+                matricula: usuario.matricula,
+                userType: "aluno",
             });
         } else {
             //senha errada
