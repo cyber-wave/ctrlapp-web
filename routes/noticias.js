@@ -37,10 +37,10 @@ router.get('/listar', function (req, res, next) {
             datatype: 'JSON',
 
             success: function (data) {
-                
+                console.log(data);
                 res.status(200).render('listarNoticias', {
                     title: 'Listar notícias',
-                    noticias: data
+                    noticias: data.noticias
                 })
             },
             error: function (jqXHR, textStatus, errorThrown) {

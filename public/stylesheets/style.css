@@ -23,7 +23,8 @@
 
 
 ul#listaAcessibilidade li a, ul#listaAtalhos li a {
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 ul#listaAcessibilidade li a{

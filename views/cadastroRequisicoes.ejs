@@ -16,9 +16,21 @@
     <main id="content">
         <div class="row section">
             <div class="col s12 ">
+                <form method="POST" class="col s10 offset-s1 m6 offset-m3 l6 offset-l3" id="cadastroRequisicoesForm">
 
+                    <div class="row">
+                        <div class="input-field">
+                            <input id="requisicao" name="requisicao" type="text" data-length="60" maxlength="60">
+                            <label for="requisicao">Requisição</label>
+                        </div>
+                    </div>
 
+                    <div class="row center-align">
+                        <button type="submit" class="btn waves-effect spread-button-primary uk-width-1-2 spread-button-width"
+                            id="envioFormulario">Cadastrar</button>
+                    </div>
 
+                </form>
             </div>
         </div>
     </main>

@@ -18,7 +18,10 @@ ul.sidenav.sidenav-fixed li.logo {
 }
 
 nav{
-    background-image: url("../images/b1.png");
+    background-image: url("../images/background.png");
+    background-size:     cover;                  
+    background-repeat:   no-repeat;
+    background-position: center center;   
     opacity: 0.5;
     padding-left: 300px;
 }
