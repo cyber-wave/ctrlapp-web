@@ -15,6 +15,10 @@ a:active, a:focus, a:hover {
 }
 */
 
+ul#listaAcessibilidade li a, ul#listaAtalhos li a {
+    color: #161616;
+}
+
 .spread-button-primary{
     background-color: #25ced1;
     color: #EFEFEF;
