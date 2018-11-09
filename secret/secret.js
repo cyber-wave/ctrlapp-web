@@ -1,5 +1,5 @@
 
-const secret = "super secret";
+const secret = "supersecret";
 
 
 module.exports = secret;
