@@ -1,3 +1,6 @@
 $( document ).ready(function() {
-    $('.sidenav').sidenav();
+    $('#sidenav-slide').sidenav({
+        closeOnClick: true
+    });
 });
+
