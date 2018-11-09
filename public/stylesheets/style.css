@@ -35,6 +35,9 @@ ul#listaAtalhos{
   display: block;
 }
 
+.section{
+  padding-top: 3rem;
+}
 
 @media only screen and (max-width: 768px) {
   #content{

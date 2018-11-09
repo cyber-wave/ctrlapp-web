@@ -8,15 +8,16 @@
     <% include ../public/fragments/nav %>
     <% include ../public/fragments/sidebar %>
 
-    <div id="content">
+    <main id="content">
         <div class="row section">
             <div class="col s12 ">
-                <form method="POST" class="col s10 offset-s1 m6 offset-m3 l6 offset-l3" id="userForm" action="/">
+ 
+                <form method="POST" class="col s10 offset-s1 m6 offset-m3 l6 offset-l3" id="noticiasForm" action="/">
 
                     <div class="row">
                         <div class="input-field">
-                            <select name="topico">
-                                <option value="" disabled selected>Selecione</option>
+                            <select name="topico" id="topico">
+                                <option value="" disabled selected></option>
                                 <option value="bolsas">Bolsas</option>
                                 <option value="gerais">Avisos gerais</option>
                                 <option value="estagio">Oportunidades de estágio</option>
@@ -40,14 +41,17 @@
                     </div>
 
                     <div class="row center-align">
-                        <button type="submit" class="btn waves-effect spread-button-primary uk-width-1-2 spread-button-width">Enviar</button>
+                        <button type="submit" class="btn waves-effect spread-button-primary uk-width-1-2 spread-button-width" id="envioFormulario">Enviar</button>
                     </div>
 
                 </form>
             </div>
         </div>
-    </div>
+    </main>
 
+
+
+    <% include ../public/fragments/footer %>
 
     <% include ../public/fragments/javascripts %>
     <script src="/javascripts/noticias.js"></script>

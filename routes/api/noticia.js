@@ -45,7 +45,7 @@ router.get('/', (req, res, next) => {
     })
     .catch(err => {
         res.status(500).json({
-            mensagem: "Erro ou ler noticias",
+            mensagem: "Erro ao listar noticias",
             causa: err
         });
     });

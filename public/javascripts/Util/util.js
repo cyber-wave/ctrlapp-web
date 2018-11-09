@@ -1,6 +1,7 @@
 
 
 function serverPorta(){
-    return window.location.hostname + ":" + window.location.port;
+    return "http://" + window.location.hostname + ":" + window.location.port;
 }
+
 
