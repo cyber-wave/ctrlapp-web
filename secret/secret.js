@@ -1,5 +1,5 @@
 
-const secret = "super secret";
+const secret = "EABD522910CCDD77AEF079FEFF0C7BB6486F6AB207AE6D3ED9E671208C92AB0F";
 
 
 module.exports = secret;
