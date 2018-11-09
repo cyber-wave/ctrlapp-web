@@ -18,7 +18,7 @@ ul#listaAcessibilidade li a, ul#listaAtalhos li a {
 }
 
 .sidenav li > a{
-    color:#eb5270;
+    color:#000000;
  }
  
  .sidenav li.active {
@@ -34,15 +34,15 @@ ul#listaAcessibilidade li a, ul#listaAtalhos li a {
 }
 
 .spread-button-primary{
-    background-color: #25ced1;
+    background-color: #FF8B5C;
     color: #EFEFEF;
-    border: 1px solid #25ced1;
+    border: 1px solid #FF8B5C;
 }
 
 .spread-button-primary:hover, .spread-button-primary:active, .spread-button-primary:focus{
-    background-color: #50e0e2;
+    background-color: #e97040;
     color: #EFEFEF;
-    border: 1px solid #50e0e2;
+    border: 1px solid #e97040;
 }
 
 a{
@@ -59,6 +59,14 @@ a{
     color:#EFEFEF;
 }
 
+
+.sidenav li > a > i, .sidenav li > a > [class^="mdi-"], .sidenav li > a li > a > [class*="mdi-"], .sidenav li > a > i.material-icons {
+    color:#EB5270;
+}
+
+.page-footer{
+  /*  background-color:#FF8B5C; */
+}
 
 
 
