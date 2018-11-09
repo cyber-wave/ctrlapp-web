@@ -41,7 +41,9 @@ router.get('/', (req, res, next) => {
     var limit = req.query.limite || 30; //numero de docs para retornar
     MessageDAO.find({}).sort({timestamp: -1}).skip(start).limit(limit).exec()
     .then(data => {
-        res.status(200).json(data);
+        res.status(200).json({
+            noticias: data
+        });
     })
     .catch(err => {
         res.status(500).json({
