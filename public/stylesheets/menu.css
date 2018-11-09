@@ -4,14 +4,6 @@ ul.sidenav.sidenav-fixed li.logo {
     margin-bottom: 100px;
 }
 
-.sidenav li > a{
-   color:#eb5270;
-}
-
-
-.sidenav li.active, .sidenav li > a:hover  {
-    background-color: #cbf4f0;
-}
 
 .sidenav li.logo > a:hover{
     background-color: transparent;

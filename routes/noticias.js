@@ -37,9 +37,7 @@ router.get('/listar', function (req, res, next) {
             datatype: 'JSON',
 
             success: function (data) {
-
-                console.log(data[0]);
-
+                
                 res.status(200).render('listarNoticias', {
                     title: 'Listar notícias',
                     noticias: data

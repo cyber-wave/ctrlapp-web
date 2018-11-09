@@ -9,11 +9,29 @@ PALETA DE CORES
 
 */
 
-/*
-a:active, a:focus, a:hover {  
-    border: 1px solid #000;  
+ul#listaAcessibilidade li a {
+    text-decoration-color: #EFEFEF;
 }
-*/
+
+ul#listaAcessibilidade li a, ul#listaAtalhos li a {
+    color: #3D3D3D;
+}
+
+.sidenav li > a{
+    color:#eb5270;
+ }
+ 
+ .sidenav li.active {
+     background-color: #f1f1f1;
+ }
+
+ .sidenav li > a:hover {
+    background-color: #f7f5f5;
+ }
+
+ul#listaAcessibilidade li a, ul#listaAtalhos li a {
+    color: #161616;
+}
 
 .spread-button-primary{
     background-color: #25ced1;
