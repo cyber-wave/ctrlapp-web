@@ -15,6 +15,7 @@ ul.sidenav.sidenav-fixed li.logo {
 
 .sidenav li.logo > a:hover{
     background-color: transparent;
+    cursor: pointer;
 }
 
 #front-page-logo {
@@ -23,7 +24,6 @@ ul.sidenav.sidenav-fixed li.logo {
     width:auto;
     pointer-events: none;
 }
-
 
 nav{
     background-image: url("../images/b1.png");

@@ -27,9 +27,18 @@ a:active, a:focus, a:hover {
     border: 1px solid #50e0e2;
 }
 
-
 a{
     color:#eb5270;
+}
+
+.toastSucesso{
+    background-color: #66bb6a ;
+    color:#EFEFEF;
+}
+
+.toastFalha{
+    background-color:#EF5350;
+    color:#EFEFEF;
 }
 
 
