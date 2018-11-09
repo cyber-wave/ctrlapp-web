@@ -59,7 +59,29 @@ router.post("/", checarCPF, (req, res, next) => {
         })
     });
 });
-
+/**
+ * Atualiza o TokenFCM do Aluno apenas
+ */
+router.post("/:matricula/tokenUpdate", (req, res, next) =>{
+    console.log("Performing token update for " + req.params.matricula);
+    AlunoDAO.findOneAndUpdate({
+        matricula: req.params.matricula
+    },{
+        $set: {
+            tokenFCM: req.body.token_fcm,
+        }
+    }).exec()
+    .then(() => {
+        console.log(`Token do aluno ${req.params.matricula} atualizada com sucesso`);
+        res.status(200).json({
+            mensagem: `Token do aluno ${req.params.matricula} atualizada com sucesso`
+        });
+    })
+    .catch(err => {
+        console.log("Nao foi possivel atualizar o token do aluno " + req.params.matricula);
+        res.status(500).json("Nao foi possivel atualizar o token do aluno.");
+    })
+});
 /**
  * Atualiza o aluno informando sua matricula
  * Não se pode alterar a matricula do aluno, pode causar inconsistencias no sistema
