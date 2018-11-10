@@ -2,6 +2,7 @@ var express = require('express');
 var auth = require('./auth');
 var router = express.Router();
 var MessageDAO = require('../../models/message/message');
+var NotificationPusher = require('../../utils/notificationPusher');
 
 
 
@@ -17,6 +18,13 @@ router.post('/:topico', (req, res, next) => {
         topico: topico
     }).then((data) =>{
         //Inserido no DB com sucesso!
+        NotificationPusher.pushToTopic(titulo, corpo, topico)
+        .then(() =>{
+            console.log(`Enviado mensagem para topico ${topico}`);
+        })
+        .catch(() =>{
+            console.log(`Nao foi possivel enviar mensagem para topico ${topico}`);
+        })
         res.status(201).json({
             status: "Noticia salva com sucesso",
             noticia: data
