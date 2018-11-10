@@ -45,17 +45,17 @@ router.post("/aluno/:matricula", (req, res, next) => {
             },
             token: theToken
         }).then(() => {
-            res.send(200).json({
+            res.status(200).json({
                 mensagem: `Mensagem para aluno ${req.params.matricula} enviado com sucesso`
             });
         }).catch(() => {
-            res.send(500).json({
+            res.status(500).json({
                 mensagem: `Erro ao enviar mensagem: firebase`
             })
         })
     })    
     .catch(err => {
-        res.send(500).json({
+        res.status(500).json({
             mensagem: `Erro ao enviar mensagem: mongo`,
             motivo: err
         });
