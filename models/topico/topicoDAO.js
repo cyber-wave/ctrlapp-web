@@ -11,8 +11,8 @@ var mongoose = require('mongoose');
 var connect_db = require('../mongoConnect');
 
 var TopicoSchema = new mongoose.Schema({
-    nome: {required: true, unique: true},
-    descricao: {required: true}
+    nome: {required: true, unique: true, type: String},
+    descricao: {required: true, type: String}
 });
 
 var TopicoModel = connect_db.model("Topico", TopicoSchema);

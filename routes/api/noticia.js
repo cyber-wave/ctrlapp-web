@@ -22,9 +22,10 @@ router.post('/:topico', (req, res, next) => {
         .then(() =>{
             console.log(`Enviado mensagem para topico ${topico}`);
         })
-        .catch(() =>{
+        .catch((err) =>{
             console.log(`Nao foi possivel enviar mensagem para topico ${topico}`);
-        })
+            console.error(err);
+        });
         res.status(201).json({
             status: "Noticia salva com sucesso",
             noticia: data

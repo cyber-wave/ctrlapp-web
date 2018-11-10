@@ -48,9 +48,11 @@ router.post("/aluno/:matricula", (req, res, next) => {
             res.status(200).json({
                 mensagem: `Mensagem para aluno ${req.params.matricula} enviado com sucesso`
             });
-        }).catch(() => {
+        }).catch((err) => {
+            console.error(err);
             res.status(500).json({
-                mensagem: `Erro ao enviar mensagem: firebase`
+                mensagem: `Erro ao enviar mensagem: firebase`,
+                motivo: err
             })
         })
     })    

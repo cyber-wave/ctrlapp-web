@@ -1,7 +1,7 @@
 var firebase = require('../secret/firebase');
 
-class NotificationPusher{
-    static pushToDevice(titulo, corpo, fcmToken){
+var NotificationPusher = {
+    pushToDevice: function(titulo, corpo, fcmToken){
         var promise = firebase.messaging().send({
             notification: {
                 body: mensagem,
@@ -10,9 +10,9 @@ class NotificationPusher{
             token: theToken
         });
         return promise;
-    }
+    },
 
-    static pushToTopic(titulo, corpo, topic){
+    pushToTopic: function(titulo, corpo, topic){
         var promise = firebase.messaging().send({
             android: {
                 collapseKey: topic
@@ -26,3 +26,5 @@ class NotificationPusher{
         return promise;
     }
 }
+
+module.exports = NotificationPusher;

@@ -18,7 +18,9 @@ router.all("/*", (req, res, next) =>{
 })
 router.get("/", (req,res,next) =>{
     AlunoDAO.find({}).then( data =>{
-        res.status(200).json(data);
+        res.status(200).json({
+            alunos: data
+        });
     }).catch(err => {
         console.log(`Erro na requisicao: ${err}`);
         res.sendStatus(500);
