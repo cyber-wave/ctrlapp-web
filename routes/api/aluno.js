@@ -6,6 +6,15 @@ var AlunoDAO = require('../../models/aluno/alunoDAO');
 /**
  * Pega todos os alunos
  */
+router.all("/", (req, res, next) =>{
+    console.log("Request received!");
+    console.log("body:");
+    console.log(req.body);
+    console.log("params:");
+    console.log(req.params);
+    console.log("query:");
+    console.log(req.query);
+})
 router.get("/", (req,res,next) =>{
     AlunoDAO.find({}).then( data =>{
         res.status(200).json(data);
