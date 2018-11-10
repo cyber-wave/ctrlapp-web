@@ -28,7 +28,7 @@ router.get("/", (req,res,next) =>{
  * Pega um aluno pela matricula
  */
 router.get("/:matricula", (req, res, next) =>{
-    AlunoDAO.findOne({matricula: req.params.matricula}).select("nome matricula topicosInscritos cadastroCompleto").exec()
+    AlunoDAO.findOne({matricula: req.params.matricula}).select("nome email cpf tokenFCM matricula topicosInscritos cadastroCompleto ").exec()
     .then(data => {
         res.status(200).json(data);
     })
