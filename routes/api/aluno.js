@@ -78,7 +78,7 @@ router.post("/:matricula/tokenUpdate", (req, res, next) =>{
         matricula: req.params.matricula
     },{
         $set: {
-            tokenFCM: req.body.token_fcm,
+            tokenFCM: req.body.fcm_token,
         }
     }).exec()
     .then(() => {
