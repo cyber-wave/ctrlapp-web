@@ -10,11 +10,24 @@ router.get('/', (req, res, next) => {
         });
     }).catch(err =>{
         res.status(500).json({
-            mensagem: "Erro ao consultar laboratorio",
+            mensagem: "Erro ao consultar laboratorios",
             causa: err
         });
     });
 });
+
+router.get(':id', (req, res, next) =>{
+    LabDAO.findById(req.params.id).exec()
+    .then(lab => {
+        res.status(200).json(lab);
+    })
+    .catch(err => {
+        res.status(500).json({
+            mensagem: "Erro ao consultar laboratorio",
+            causa: err
+        });
+    })
+})
 
 router.post('/', (req, res, next) => {
     LabDAO.create({
