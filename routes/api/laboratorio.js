@@ -5,7 +5,9 @@ var LabDAO = require('../../models/laboratorio/laboratorioDAO');
 
 router.get('/', (req, res, next) => {
     LabDAO.find({}).exec().then(labs => {
-        res.status(200).json(labs);
+        res.status(200).json({
+            laboratorios: labs
+        });
     }).catch(err =>{
         res.status(500).json({
             mensagem: "Erro ao consultar laboratorio",

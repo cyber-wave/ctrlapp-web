@@ -12,7 +12,9 @@ router.get('/', (req, res, next) => {
     }
     EventoDAO.find(parametros).exec()
         .then(eventos => {
-            res.status(200).json(eventos);
+            res.status(200).json({
+                eventos: eventos
+            });
         })
         .catch(err => {
             res.status(500).json({
@@ -20,6 +22,28 @@ router.get('/', (req, res, next) => {
                 causa: err
             });
         });
+});
+
+router.get('/:labId', (req, res, next) => {
+    var params = {};
+    params.dia = req.body.dia;
+    params.horarioInicio = req.body.horarioInicio;
+    params.horarioFim = req.body.horarioFim;
+    params.id = req.params.labId;
+    console.log(params);
+
+    EventoDAO.find(params).exec()
+    .then(eventosLab => {
+        res.status(200).json({
+            eventos: eventosLab
+        });
+    })
+    .catch( err => {
+        res.status(500).json({
+            mensagem: "Nao foi possivel obter eventos do laboratorio",
+            causa: err
+        });
+    });
 });
 
 router.post('/:labId', (req, res, next) => {
