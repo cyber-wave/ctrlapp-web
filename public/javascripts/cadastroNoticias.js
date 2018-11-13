@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#novaNoticia').addClass("active");
+    $('#cadastroNoticias').addClass("active");
     $('select').formSelect();
     $('input#titulo, textarea#corpo').characterCounter();
 });
@@ -46,31 +46,6 @@ $("#noticiasForm").submit(function (event) {
 
     event.preventDefault();
 });
-
-
-
-function verificaCampos(idForm, event) {
-
-    var isValid = true;
-
-    $("#" + idForm + ' :input[type="text"] , form textarea').each(function () {
-        if ($.trim($(this).val()) == '') {
-            isValid = false;
-            $(this).addClass("invalid").removeClass("valid");
-
-        } else {
-            $(this).addClass("valid").removeClass("invalid");
-        }
-    });
-
-    if (isValid == false) {
-        M.toast({ html: 'Preencha todos os campos!', classes: 'toastFalha rounded' });
-    }
-
-    return isValid;
-
-}
-
 
 
 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<% include ../public/fragments/header %>
+</head>
+
+<body>
+    <% include ../public/fragments/nav %>
+    <% include ../public/fragments/sidebar %>
+
+    <main id="content">
+        <div class="row section">
+            <div class="col s12 ">
+
+
+                <table class="striped highlight centered responsive-table">
+                    <thead>
+
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+                        <% for(var i=0; i<topicos.length; i++) {%>
+                        <tr> 
+                            <td><%= topicos[i].nome %></td>
+                            <td><%= topicos[i].descricao %></td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </main>
+
+
+    <% include ../public/fragments/footer %>
+    <% include ../public/fragments/javascripts %>
+    <script src="/javascripts/listarTopicos.js"></script>
+
+</body>
+
+</html>

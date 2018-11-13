@@ -5,3 +5,29 @@ function serverPorta(){
 }
 
 
+function verificaCampos(idForm, event) {
+
+    var isValid = true;
+
+    $("#" + idForm + ' :input[type="text"] , form textarea').each(function () {
+        if ($.trim($(this).val()) == '') {
+            isValid = false;
+            $(this).addClass("invalid").removeClass("valid");
+
+        } else {
+            $(this).addClass("valid").removeClass("invalid");
+        }
+    });
+
+    if (isValid == false) {
+        M.toast({ html: 'Preencha todos os campos!', classes: 'toastFalha rounded' });
+    }
+
+    return isValid;
+
+}
+
+
+function limpaFrase(frase){
+    return frase.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '').toLowerCase();
+}

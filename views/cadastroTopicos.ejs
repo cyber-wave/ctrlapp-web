@@ -18,10 +18,19 @@
             <div class="col s12 ">
                 <form method="POST" class="col s10 offset-s1 m6 offset-m3 l6 offset-l3" id="cadastroTopicosForm" >
 
+                   
+
                     <div class="row">
                         <div class="input-field">
-                            <input id="topico" name="topico" type="text" data-length="60" maxlength="60">
-                            <label for="topico">Tópico</label>
+                            <input id="nome" name="nome" type="text" data-length="30" maxlength="30">
+                            <label for="nome">Nome</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field">
+                            <input id="descricao" name="descricao" type="text" data-length="80" maxlength="80">
+                            <label for="descricao">Descrição</label>
                         </div>
                     </div>
 
@@ -30,6 +39,9 @@
                             id="envioFormulario">Cadastrar</button>
                     </div>
 
+                    <div class="row">
+                        <p class="obs">*O nome não pode ter acentos, caracteres especiais e deve ser formado por letras minúsculas.</p>
+                    </div>
                 </form>
             </div>
         </div>

@@ -23,22 +23,17 @@
 }
 
 
-ul#listaAcessibilidade li a, ul#listaAtalhos li a {
+ul#listaAcessibilidade li a{
   font-size: 13px;
   font-weight: bold;
 }
 
-ul#listaAcessibilidade li a{
-  text-decoration: underline;
-}
-
-ul#listaAtalhos{
-  height: 180px;
-  display: block;
-}
-
 .section{
   padding-top: 3rem;
+}
+
+.obs{
+    font-size: 12px;
 }
 
 @media only screen and (max-width: 768px) {

@@ -6,10 +6,10 @@ var logger = require('morgan');
 var secure = require('express-force-https');
 var session = require('express-session');
 
-var cadastroRequisicoesRouter = require('./routes/cadastroRequisicoes');
-var cadastroTopicosRouter = require('./routes/cadastroTopicos');
-var requisicoesAlunosRouter = require('./routes/requisicoesAlunos');
-var acessoLaboratoriosRouter = require('./routes/acessoLaboratorios');
+
+var topicosRouter = require('./routes/topicos');
+var requisicoesRouter = require('./routes/requisicoes');
+var laboratoriosRouter = require('./routes/laboratorios');
 var noticiasRouter = require('./routes/noticias');
 var loginRouter = require('./routes/login');
 var apiRouter = require('./routes/api/main');
@@ -38,10 +38,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 //ROUTES
 app.use('/', noticiasRouter);
 app.use('/login', loginRouter);
-app.use('/laboratorios', acessoLaboratoriosRouter);
-app.use('/requisicoes', requisicoesAlunosRouter);
-app.use('/novotopico', cadastroTopicosRouter);
-app.use('/novarequisicao', cadastroRequisicoesRouter);
+app.use('/laboratorios', laboratoriosRouter);
+app.use('/requisicoes', requisicoesRouter);
+app.use('/topicos', topicosRouter);
 app.use('/api', apiRouter); //mobile
 
 

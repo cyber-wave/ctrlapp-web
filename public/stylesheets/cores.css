@@ -9,11 +9,7 @@ PALETA DE CORES
 
 */
 
-ul#listaAcessibilidade li a {
-    text-decoration-color: #EFEFEF;
-}
-
-ul#listaAcessibilidade li a, ul#listaAtalhos li a , .sidenav li > a {
+ul#listaAcessibilidade li a, .sidenav li > a {
     color: #000000;
 }
 
@@ -60,6 +56,9 @@ a{
   /*  background-color:#FF8B5C; */
 }
 
+.obs{
+    color: #535353;
+}
 
 
 

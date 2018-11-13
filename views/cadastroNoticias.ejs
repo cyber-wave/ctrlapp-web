@@ -18,9 +18,13 @@
                         <div class="input-field">
                             <select name="topico" id="topico">
                                 <option value="" disabled selected></option>
-                                <option value="bolsas">Bolsas</option>
-                                <option value="gerais">Avisos gerais</option>
-                                <option value="estagio">Oportunidades de estágio</option>
+
+                                <% for(var i=0; i<topicos.length; i++) {%>
+                                    <tr> 
+                                        <option value="<%= topicos[i].nome %>"><%= topicos[i].descricao %></option>
+                                    </tr>
+                                <% } %>
+                                
                             </select>
                             <label>Tópico</label>
                         </div>
@@ -53,7 +57,7 @@
 
     <% include ../public/fragments/footer %>
     <% include ../public/fragments/javascripts %>
-    <script src="/javascripts/noticias.js"></script>
+    <script src="/javascripts/cadastroNoticias.js"></script>
 
 </body>
 

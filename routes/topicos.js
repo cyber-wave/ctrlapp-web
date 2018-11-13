@@ -16,8 +16,15 @@ router.use(function (req, res, next) {
 });
 
 
+router.get('/cadastro', function(req,res,next){
+    res.status(200).render('cadastroTopicos',{
+        title: 'Cadastro de tópicos'
+    })
+});
 
-router.get('/', function (req, res, next) {
+
+router.get('/listar', function(req,res,next){
+
 
 
     var url = "http://" + req.headers.host + "/api/topico/";
@@ -29,8 +36,8 @@ router.get('/', function (req, res, next) {
 
         success: function (data) {
             console.log(data);
-            res.status(200).render('cadastroNoticias', {
-                title: 'Envio de notícias',
+            res.status(200).render('listarTopicos',{
+                title: 'Listar tópicos',
                 topicos: data.topicos
             })
         },
@@ -38,32 +45,6 @@ router.get('/', function (req, res, next) {
 
         },
     });
-
-});
-
-router.get('/listar', function (req, res, next) {
-
-
-    var url = "http://" + req.headers.host + "/api/noticia/";
-
-    $.ajax({
-        url: url,
-        type: 'GET',
-        datatype: 'JSON',
-
-        success: function (data) {
-            console.log(data);
-            res.status(200).render('listarNoticias', {
-                title: 'Listar notícias',
-                noticias: data.noticias
-            })
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-
-        },
-    });
-
-
 
 });
 
