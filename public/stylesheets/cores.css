@@ -9,6 +9,14 @@ PALETA DE CORES
 
 */
 
+.mdl-button--raised.mdl-button--colored{
+    background-color: #FF8B5C;
+}
+
+.mdl-button--raised.mdl-button--colored:hover, .mdl-button--raised.mdl-button--colored:active, .mdl-button--raised.mdl-button--colored:focus {
+    background-color: #e97040;
+}
+
 ul#listaAcessibilidade li a, .sidenav li > a {
     color: #000000;
 }

@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
+
+<% include ../public/fragments/dependencias/dependenciasCSS %>
 <% include ../public/fragments/header %>
+
 </head>
 
 <body>
@@ -10,10 +13,10 @@
 
     <main id="content">
         <div class="row section">
-            <div class="col s12 ">
+            <div class="col s10 offset-s1">
 
 
-                <table class="striped highlight centered responsive-table">
+                <table id="materialize-table">
                     <thead>
 
                         <tr>
@@ -41,6 +44,7 @@
 
     <% include ../public/fragments/footer %>
     <% include ../public/fragments/javascripts %>
+    <% include ../public/fragments/dependencias/dependenciasJS %>
     <script src="/javascripts/listarTopicos.js"></script>
 
 </body>
