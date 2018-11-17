@@ -4,7 +4,13 @@ var router = express.Router();
 var MessageDAO = require('../../models/message/message');
 var NotificationPusher = require('../../utils/notificationPusher');
 
-
+router.get("/", (req, res, next) =>{
+    //adicionar header de cache!
+    const diaEmSegundos = 86400;
+    const seteDias = diaEmSegundos * 7;
+    res.set('Cache-Control', `max-age=${seteDias}`);
+    next();
+})
 
 router.post('/:topico', (req, res, next) => {
     const titulo = req.body.titulo;    
