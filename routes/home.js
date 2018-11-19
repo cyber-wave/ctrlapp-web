@@ -9,17 +9,13 @@ global.document = document;
 var $ = jQuery = require('jquery')(window);
 
 
-router.get('/cadastro', function(req,res,next){
-    res.status(200).render('cadastroRequisicoes',{
-        title: 'Cadastro de requisições'
+router.get('/', function(req,res,next){
+    res.status(200).render('home',{
+        title: 'Página inicial'
     })
 });
 
-router.get('/listar', function(req,res,next){
-    res.status(200).render('listarRequisicoes',{
-        title: 'Listar requisições de alunos'
-    })
-});
+
 
 
 

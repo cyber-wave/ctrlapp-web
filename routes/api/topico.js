@@ -6,6 +6,8 @@ var TopicoDAO = require('../../models/topico/topicoDAO');
 /**
  * Pega todos os topicos
  */
+
+ /*
 router.all("/*", (req, res, next) =>{
     console.log("Request received!");
     console.log("body:");
@@ -16,6 +18,8 @@ router.all("/*", (req, res, next) =>{
     console.log(req.query);
     next();
 })
+*/
+
 router.get("/", (req,res,next) =>{
     TopicoDAO.find({}).then( data =>{
         res.status(200).json({

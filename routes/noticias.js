@@ -9,15 +9,7 @@ global.document = document;
 var $ = jQuery = require('jquery')(window);
 
 
-router.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
-
-
-
-router.get('/', function (req, res, next) {
+router.get('/envio', function (req, res, next) {
 
 
     var url = "http://" + req.headers.host + "/api/topico/";
@@ -28,7 +20,7 @@ router.get('/', function (req, res, next) {
         datatype: 'JSON',
 
         success: function (data) {
-            console.log(data);
+            //console.log(data);
             res.status(200).render('cadastroNoticias', {
                 title: 'Envio de notícias',
                 topicos: data.topicos
@@ -52,7 +44,7 @@ router.get('/listar', function (req, res, next) {
         datatype: 'JSON',
 
         success: function (data) {
-            console.log(data);
+            //console.log(data);
             res.status(200).render('listarNoticias', {
                 title: 'Listar notícias',
                 noticias: data.noticias

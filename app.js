@@ -6,7 +6,7 @@ var logger = require('morgan');
 var secure = require('express-force-https');
 var session = require('express-session');
 
-
+var homeRouter = require('./routes/home');
 var topicosRouter = require('./routes/topicos');
 var requisicoesRouter = require('./routes/requisicoes');
 var laboratoriosRouter = require('./routes/laboratorios');
@@ -35,15 +35,34 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.use(function (req, res, next) {
+
+  if (req.session.secretario) {
+    console.log("Tem usuário");
+  } else {
+    console.log("Não tem usuário");
+    res.render('login', {
+      title: "Login do secretário"
+    });
+  }
+
+  next();
+});
+
 //ROUTES
-app.use('/', noticiasRouter);
+app.use('/', homeRouter);
+app.use('/noticias', noticiasRouter);
 app.use('/login', loginRouter);
 app.use('/laboratorios', laboratoriosRouter);
 app.use('/requisicoes', requisicoesRouter);
 app.use('/topicos', topicosRouter);
 app.use('/api', apiRouter); //mobile
-
-
 
 
 // catch 404 and forward to error handler

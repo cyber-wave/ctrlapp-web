@@ -9,15 +9,15 @@ var SecretarioDAO = require('../../models/secretario/secretarioDAO');
 
 router.get('/', (req, res, next) => {
     SecretarioDAO.find({}).exec()
-    .then(secretarios => {
-        res.status(200).json(secretarios);
-    })
-    .catch( err => {
-        res.status(500).json({
-            mensagem: "Erro ao obter secretarios",
-            causa: err
+        .then(secretarios => {
+            res.status(200).json(secretarios);
         })
-    })
+        .catch(err => {
+            res.status(500).json({
+                mensagem: "Erro ao obter secretarios",
+                causa: err
+            })
+        })
 })
 router.get("/:login", (req, res, next) => {
     const login = req.params.login;
@@ -35,6 +35,41 @@ router.get("/:login", (req, res, next) => {
         });
     })
 });
+
+
+/* Login do secretário */
+router.post('/login', (req, res, next) => {
+    var login = req.body.login;
+    var senha = req.body.senha;
+
+    var dbResult = SecretarioDAO.findOne({
+        login: login
+    }).exec();
+
+    dbResult.then(secretario => {
+
+        if (secretario === null) {
+            req.body.error = "Usuário não existe!";
+        } else if (secretario.login === login && secretario.senha === senha) {
+            req.session.secretario = secretario.login;
+            res.redirect('/'); //redireciona para a dashboard
+        } else {
+            req.body.error = "Usuário ou senha incorretos!";
+            next();
+        }
+    })
+    dbResult.catch(err => {
+        console.log(err);
+        req.body.error = "Usuário não existe!";
+        next();
+    });
+
+}, (req, res, next) => {
+    res.render('login', {
+        error: req.body.error
+    });
+});
+
 
 /**
  * Cadastra um novo secretario
@@ -81,7 +116,7 @@ router.put("/:login", (req, res, next) => {
         }).exec()
         .then(() => {
             res.status(200).json({
-                mensagem: `Secretario ${req.params.login} atualizado com sucesso`
+                mensagem: "Secretario ${req.params.login} atualizado com sucesso"
             });
         })
         .catch(err => {
@@ -101,7 +136,7 @@ router.delete('/:login', (req, res, next) => {
         .exec()
         .then(() => {
             res.status(200).json({
-                mensagem: `Secretario ${req.params.login} removido com sucesso`
+                mensagem: "Secretario ${req.params.login} removido com sucesso"
             });
         })
         .catch(err => {

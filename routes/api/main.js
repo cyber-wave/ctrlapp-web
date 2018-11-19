@@ -29,4 +29,5 @@ router.use('/secretario', secretario);
 router.use('/topico', topico);
 
 
+
 module.exports = router;

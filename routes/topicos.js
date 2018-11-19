@@ -9,13 +9,6 @@ global.document = document;
 var $ = jQuery = require('jquery')(window);
 
 
-router.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
-
-
 router.get('/cadastro', function(req,res,next){
     res.status(200).render('cadastroTopicos',{
         title: 'Cadastro de tópicos'
@@ -24,8 +17,6 @@ router.get('/cadastro', function(req,res,next){
 
 
 router.get('/listar', function(req,res,next){
-
-
 
     var url = "http://" + req.headers.host + "/api/topico/";
 

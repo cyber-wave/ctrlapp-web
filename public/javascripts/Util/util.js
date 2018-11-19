@@ -9,7 +9,7 @@ function verificaCampos(idForm, event) {
 
     var isValid = true;
 
-    $("#" + idForm + ' :input[type="text"] , form textarea').each(function () {
+    $("#" + idForm + ' :input[type="text"], :input[type="password"] , form textarea').each(function () {
         if ($.trim($(this).val()) == '') {
             isValid = false;
             $(this).addClass("invalid").removeClass("valid");
