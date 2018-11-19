@@ -41,6 +41,8 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use('/api', apiRouter); //mobile
+
 app.use(function (req, res, next) {
 
   if (req.session.secretario) {
@@ -52,7 +54,7 @@ app.use(function (req, res, next) {
     });
   }
 
-  next();
+  //next(); nao precisa deste next, ja que voce esta fazendo um redirecionamento...
 });
 
 //ROUTES
@@ -62,7 +64,7 @@ app.use('/login', loginRouter);
 app.use('/laboratorios', laboratoriosRouter);
 app.use('/requisicoes', requisicoesRouter);
 app.use('/topicos', topicosRouter);
-app.use('/api', apiRouter); //mobile
+
 
 
 // catch 404 and forward to error handler
