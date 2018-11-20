@@ -49,24 +49,27 @@ router.post('/login', (req, res, next) => {
     dbResult.then(secretario => {
 
         if (secretario === null) {
-            req.body.error = "Usuário não existe!";
+            res.status(500).json({
+                mensagem: "Secretário não existe!"
+            });
         } else if (secretario.login === login && secretario.senha === senha) {
             req.session.secretario = secretario.login;
             res.redirect('/'); //redireciona para a dashboard
         } else {
-            req.body.error = "Usuário ou senha incorretos!";
-            next();
+            res.status(500).json({
+                mensagem: "Secretário não existe!"
+            });
         }
     })
     dbResult.catch(err => {
         console.log(err);
-        req.body.error = "Usuário não existe!";
+        //req.body.error = "Secretário não existe!";
         next();
     });
 
 }, (req, res, next) => {
     res.render('login', {
-        error: req.body.error
+        title: "Login do secretário"
     });
 });
 

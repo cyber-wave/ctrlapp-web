@@ -15,7 +15,7 @@ $("#secretarioForm").submit(function (event) {
 
     var url = serverPorta() + "/api/secretario/login";
 
-
+ 
     if (verificaCampos("secretarioForm", event)) {
         $.ajax({
             url: url,
@@ -27,10 +27,11 @@ $("#secretarioForm").submit(function (event) {
                 $("#envioFormulario").val("Entrando...");
             },
             success: function (data) {
-                //M.toast({ html: 'Logado com sucesso!', classes: 'toastSucesso rounded' });
+                M.toast({ html: 'Logado com sucesso!', classes: 'toastSucesso rounded' });
+                window.location.href = "/"
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                //M.toast({ html: errorThrown, classes: 'toastFalha rounded' });
+                M.toast({ html: "Login ou senha incorretos!", classes: 'toastFalha rounded' });
             },
             complete: function () {
                 $("#secretarioForm").val("Entrar");

@@ -11,17 +11,12 @@
 
     <% include ../public/fragments/nav %>
 
- 
+
 
     <main id="content">
         <div class="row section">
             <div class="col s12 ">
                 <form method="POST" class="col s10 offset-s1 m6 offset-m3 l4 offset-l4" id="secretarioForm">
-
-                
-                    <%if (typeof(error) !== "undefined") { %>
-                        <div><%= error %></div>
-                    <% } %>
 
                     <div class="row">
                         <div class="input-field">
@@ -50,13 +45,13 @@
 
                 </form>
             </div>
-        </main>
+    </main>
 
 
 
-        <% include ../public/fragments/footer %>
-        <% include ../public/fragments/javascripts %>
-        <script src="/javascripts/login.js"></script>
+    <% include ../public/fragments/footer %>
+    <% include ../public/fragments/javascripts %>
+    <script src="/javascripts/login.js"></script>
 
 </body>
 

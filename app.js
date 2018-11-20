@@ -47,14 +47,13 @@ app.use(function (req, res, next) {
 
   if (req.session.secretario) {
     console.log("Tem usuário");
+    next();
   } else {
     console.log("Não tem usuário");
     res.render('login', {
       title: "Login do secretário"
     });
   }
-
-  //next(); nao precisa deste next, ja que voce esta fazendo um redirecionamento...
 });
 
 //ROUTES
