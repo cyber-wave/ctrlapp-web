@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<% include ../public/fragments/dependencias/dependenciasCSS %>
+<% include ../public/fragments/header %>
+
+</head>
+
+<body>
+    <% include ../public/fragments/nav %>
+    <% include ../public/fragments/sidebar %>
+
+    <main id="content">
+        <div class="row section">
+            <div class="col s10 offset-s1">
+
+
+                <table id="materialize-table">
+                    <thead>
+
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>CPF</th>
+                            <th>Siape</th>
+                            <th>Login</th>
+                            <th>Ativo</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+                        <% for(var i=0; i<professores.length; i++) {%>
+                        <tr> 
+                            <td><%= professores[i].nome %></td>
+                            <td><%= professores[i].email %></td>
+                            <td><%= professores[i].cpf %></td>
+                            <td><%= professores[i].siape %></td>
+                            <td><%= professores[i].login %></td>
+                            <td><%= professores[i].ativo %></td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </main>
+
+
+    <% include ../public/fragments/footer %>
+    <% include ../public/fragments/javascripts %>
+    <% include ../public/fragments/dependencias/dependenciasJS %>
+    <script src="/javascripts/listarProfessores.js"></script>
+
+</body>
+
+</html>

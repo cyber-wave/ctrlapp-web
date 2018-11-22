@@ -12,6 +12,8 @@ var requisicoesRouter = require('./routes/requisicoes');
 var laboratoriosRouter = require('./routes/laboratorios');
 var noticiasRouter = require('./routes/noticias');
 var loginRouter = require('./routes/login');
+var alunosRouter = require('./routes/alunos');
+var professoresRouter = require('./routes/professores');
 var apiRouter = require('./routes/api/main');
 
 var app = express();
@@ -63,6 +65,8 @@ app.use('/login', loginRouter);
 app.use('/laboratorios', laboratoriosRouter);
 app.use('/requisicoes', requisicoesRouter);
 app.use('/topicos', topicosRouter);
+app.use('/alunos', alunosRouter);
+app.use('/professores', professoresRouter);
 
 
 

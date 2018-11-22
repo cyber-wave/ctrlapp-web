@@ -31,3 +31,5 @@ function verificaCampos(idForm, event) {
 function limpaFrase(frase){
     return frase.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '').toLowerCase();
 }
+
+
