@@ -17,6 +17,7 @@ var evento = require('./evento');
 var laboratorio = require('./laboratorio');
 var secretario = require('./secretario');
 var topico = require('./topico');
+var professor = require('./professor');
 
 //TODO: Require no resto dos middlewares da API.
 router.use('/login', loginRouter);
@@ -27,6 +28,7 @@ router.use('/evento', evento);
 router.use('/laboratorio', laboratorio);
 router.use('/secretario', secretario);
 router.use('/topico', topico);
+router.use('/professor', professor);
 
 
 

@@ -12,6 +12,7 @@ var secret = require('../../secret/secret');
 //var UsuarioDAO = require('../../models/usuario/usuarioDAO');
 var AlunoDAO = require('../../models/aluno/alunoDAO');
 var SecretarioDAO = require('../../models/secretario/secretarioDAO');
+var ProfessorDAO = require('../../models/professor/professorDAO');
 
 router.post('/aluno', verify, (req, res, next) => {
     const login = req.body.login;
@@ -53,9 +54,48 @@ router.post('/aluno', verify, (req, res, next) => {
         })
     });
 })
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 router.post('/professor', (req, res, next) => {
-
+    const login = req.body.login;
+    const pw = req.body.senha;
+    console.log(req.body);
+    ProfessorDAO.findOne({ email: login }).exec().then(usuario => {
+        if (usuario.senha === pw) {
+            //usuario autenticado, retorne um token novo
+            var user = {
+                login: usuario.login,
+                email: usuario.email,
+                nome: usuario.nome,
+                matricula: usuario.matricula,
+                topicoPrivado: usuario.topicoPrivado,
+                userType: "professor"
+            }
+            var options = {
+                expiresIn: '7 days'
+            }
+            var token = jwt.sign(user, secret, options);
+            res.status(200).json({
+                status: "ok",
+                token: token,
+                login: usuario.login,
+                email: usuario.email,
+                nome: usuario.nome,
+                matricula: usuario.matricula,
+                topicoPrivado: usuario.topicoPrivado,
+                userType: "professor",
+            });
+        } else {
+            //senha errada
+            res.status(401).json({
+                mensagem: "Usuario ou senha incorretos"
+            })
+        }
+    }).catch(err => {
+        //falhou
+        res.status(404).json({
+            mensagem: "Usuario nao existe"
+        })
+    });
 })
 
 router.post('/admin', verify, (req, res, next) => {
