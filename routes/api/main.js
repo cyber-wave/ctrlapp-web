@@ -19,7 +19,6 @@ var secretario = require('./secretario');
 var topico = require('./topico');
 var professor = require('./professor');
 
-
 //TODO: Require no resto dos middlewares da API.
 router.use('/login', loginRouter);
 router.use('/messaging', messaging);
