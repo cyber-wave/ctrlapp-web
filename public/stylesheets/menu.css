@@ -3,6 +3,10 @@ header, main, footer {
     padding-left: 300px;
 }
 
+ul#listaAcessibilidade li a{
+    font-size: 13px;
+    font-weight: bold;
+  }
 
 ul.sidenav.sidenav-fixed li.logo {
     text-align: center;
@@ -24,7 +28,7 @@ ul.sidenav.sidenav-fixed li.logo {
 }
 
 nav{
-    background-image: url("../images/background.png");
+    background-image: url("../images/background2.png");
     background-size:     cover;                  
     background-repeat:   no-repeat;
     background-position: center center;   

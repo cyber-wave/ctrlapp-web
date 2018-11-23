@@ -2,8 +2,6 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-
-
 /* LOGIN */
 
 .spread-link-login{
@@ -20,12 +18,6 @@
 
 .sidenav li > a > i, .sidenav li > a > [class^="mdi-"], .sidenav li > a li > a > [class*="mdi-"], .sidenav li > a > i.material-icons {
   margin: 0 20px 0 0;
-}
-
-
-ul#listaAcessibilidade li a{
-  font-size: 13px;
-  font-weight: bold;
 }
 
 .section{

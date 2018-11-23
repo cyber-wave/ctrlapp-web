@@ -17,7 +17,20 @@ PALETA DE CORES
     background-color: #e97040;
 }
 
-ul#listaAcessibilidade li a, .sidenav li > a {
+ul#listaAcessibilidade li a{
+    color: #f1f1f1;
+}
+
+
+ul#listaAcessibilidade li{
+    background-color: #000000;
+}
+
+ul#listaAcessibilidade li:hover{
+    background-color: #eb5270;
+}
+
+.sidenav li > a {
     color: #000000;
 }
 
