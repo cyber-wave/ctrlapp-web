@@ -80,7 +80,7 @@ router.post('/professor', (req, res, next) => {
                 login: usuario.login,
                 email: usuario.email,
                 nome: usuario.nome,
-                matricula: usuario.matricula,
+                siape: usuario.siape,
                 topicoPrivado: usuario.topicoPrivado,
                 userType: "professor",
             });
