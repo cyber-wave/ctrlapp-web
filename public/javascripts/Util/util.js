@@ -35,8 +35,9 @@ function limpaFrase(frase){
 
 function limparCampos(idForm) {
     $("#" + idForm + " input").val("");
+    $("#" + idForm + " textarea").val("");
     $('input, select, textarea').removeClass("valid");
-    $('select').formSelect();
+    $("#" + idForm + " select").formSelect();
     $('input, textarea').characterCounter();
 }
 
