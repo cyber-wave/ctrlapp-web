@@ -233,6 +233,21 @@ router.post("/:siape/checkout", (req, res, next) =>{
         });
     });
 
+    router.get("/noBloco", (req, res, next) =>{
+        PresencaDAO.find({}).exec()
+        .then(profs => {
+            res.status(200).json({
+                professores: profs
+            });
+        })
+        .catch(err => {
+            res.status(500).json({
+                mensagem: "Nao foi possivel obter professores no bloco",
+                causa: err
+            });
+        });
+    });
+
     
 });
 
