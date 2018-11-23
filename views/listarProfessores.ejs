@@ -37,7 +37,12 @@
                             <td><%= professores[i].cpf %></td>
                             <td><%= professores[i].siape %></td>
                             <td><%= professores[i].login %></td>
-                            <td><%= professores[i].ativo %></td>
+
+                            <% if(professores[i].ativo){ %>
+                                <td><span class="new badge blue" data-badge-caption="Sim"></span></td>
+                              <% } else{ %>  
+                                <td><span class="new badge red" data-badge-caption="Não"></span></td>
+                            <% } %>
                         </tr>
                         <% } %>
                     </tbody>
