@@ -2,6 +2,8 @@ var express = require('express');
 var auth = require('./auth');
 var router = express.Router();
 var ProfessorDAO = require('../../models/professor/professorDAO');
+var NotificationPusher = require('../../utils/notificationPusher');
+var PresencaDAO = require('../../models/presencaProfessor/presencaProfessorDAO');
 
 /**
  * Pega todos os professors
@@ -139,6 +141,99 @@ router.post("/:siape/delete", (req, res, next) => {
             motivo: err 
         });
     })
+});
+
+router.post("/:siape/checkin", (req, res, next) =>{
+    ProfessorDAO.findOne({
+        siape: req.params.siape
+    }).exec()
+    .then(professor => {
+        PresencaDAO.findOne({
+            professor: professor.nome
+        }).then((instancia) =>{
+            if(instancia === null){
+                console.log("Criando nova entrada..");
+                PresencaDAO.create({
+                    professor: professor.nome
+                }).then(() =>{
+                    console.log(`Professor ${req.params.siape} entrou no bloco!`);
+                }).catch(err =>{
+                    console.log("Nao foi possivel fazer checkin professor no bd");
+                    console.log(err);
+                });    
+            } else {
+                console.log("instancia ja existe!");
+            }
+            
+        }).catch(() =>{
+            console.log("Criando nova entrada..");
+            PresencaDAO.create({
+                professor: professor.nome
+            }).then(() =>{
+                console.log(`Professor ${req.params.siape} entrou no bloco!`);
+            }).catch(err =>{
+                console.log("Nao foi possivel fazer checkin professor no bd");
+                console.log(err);
+            });
+        });
+        
+        NotificationPusher.pushToTopic(professor.topicoPrivado, `${professor.nome} acabou de entrar no bloco`, professor.topicoPrivado)
+        .then(() => {
+            res.status(201).json({
+                mensagem: `Professor ${req.params.siape} entrou no bloco!`
+            })
+        })
+        .catch(() => {
+            res.status(500).json({
+                mensagem: "Não foi possivel avisar aos interessados"
+            });
+        });
+        
+    })
+    .catch(err => {
+        res.status(500).json({
+            mensagem: "Houve um erro ao realizar checkin",
+            causa: err
+        });
+    });
+
+    
+});
+
+router.post("/:siape/checkout", (req, res, next) =>{
+    ProfessorDAO.findOne({
+        siape: req.params.siape
+    }).exec()
+    .then(professor => {
+        PresencaDAO.findOneAndDelete({
+            professor: professor.nome
+        }).then(() =>{
+            console.log(`Professor ${req.params.siape} saiu no bloco!`);
+        }).catch(err =>{
+            console.log("Nao foi possivel fazer checkout professor no bd");
+            console.log(err);
+        });
+        NotificationPusher.pushToTopic(professor.topicoPrivado, `${professor.nome} acabou de sair do bloco`, professor.topicoPrivado)
+        .then(() => {
+            res.status(201).json({
+                mensagem: `Professor ${req.params.siape} saiu do bloco!`
+            })
+        })
+        .catch(() => {
+            res.status(500).json({
+                mensagem: "Não foi possivel avisar aos interessados"
+            });
+        });
+        
+    })
+    .catch(err => {
+        res.status(500).json({
+            mensagem: "Houve um erro ao realizar checkout",
+            causa: err
+        });
+    });
+
+    
 });
 
 
