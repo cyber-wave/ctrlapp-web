@@ -14,6 +14,7 @@ var noticiasRouter = require('./routes/noticias');
 var loginRouter = require('./routes/login');
 var alunosRouter = require('./routes/alunos');
 var professoresRouter = require('./routes/professores');
+var secretariosRouter = require('./routes/secretarios');
 var apiRouter = require('./routes/api/main');
 
 var app = express();
@@ -67,6 +68,7 @@ app.use('/requisicoes', requisicoesRouter);
 app.use('/topicos', topicosRouter);
 app.use('/alunos', alunosRouter);
 app.use('/professores', professoresRouter);
+app.use('/secretarios', secretariosRouter);
 
 
 

@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 $("#cadastroTopicosForm").submit(function (event) {
 
-    var nome = $("#nome").val();
+    var nome = limpaFrase($("#nome").val());
     var descricao = $("#descricao").val();
    
 
@@ -38,7 +38,7 @@ $("#cadastroTopicosForm").submit(function (event) {
             },
             complete: function () {
                 $("#envioFormulario").val("Enviar");
-                limparCampos();
+                limparCampos("cadastroTopicosForm");
             }
         });
     }
@@ -47,10 +47,3 @@ $("#cadastroTopicosForm").submit(function (event) {
 });
 
 
-
-
-function limparCampos() {
-    $("#descricao").val("");
-    $("#nome").val("");
-    $('input').removeClass("valid");
-}

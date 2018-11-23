@@ -9,8 +9,10 @@ var SecretarioDAO = require('../../models/secretario/secretarioDAO');
 
 router.get('/', (req, res, next) => {
     SecretarioDAO.find({}).exec()
-        .then(secretarios => {
-            res.status(200).json(secretarios);
+        .then(data => {
+            res.status(200).json({
+                secretarios: data
+            });
         })
         .catch(err => {
             res.status(500).json({

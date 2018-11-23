@@ -39,7 +39,7 @@ $("#noticiasForm").submit(function (event) {
             },
             complete: function () {
                 $("#envioFormulario").val("Enviar");
-                limparCampos();
+                limparCampos("noticiasForm");
             }
         });
     }
@@ -49,11 +49,3 @@ $("#noticiasForm").submit(function (event) {
 
 
 
-function limparCampos() {
-    $("#titulo").val("");
-    $("#corpo").val("");
-    $("#topico").val("");
-    $('select').formSelect();
-    $('input#titulo, textarea#corpo').characterCounter();
-    $('input, select, textarea').removeClass("valid");
-}

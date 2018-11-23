@@ -33,3 +33,11 @@ function limpaFrase(frase){
 }
 
 
+function limparCampos(idForm) {
+    $("#" + idForm + " input").val("");
+    $('input, select, textarea').removeClass("valid");
+    $('select').formSelect();
+    $('input, textarea').characterCounter();
+}
+
+
