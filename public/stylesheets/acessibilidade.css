@@ -43,6 +43,11 @@
     color: yellow !important;
 }
 
+.contrast a:hover{
+    background-color: #4b4b4b !important;
+    color: yellow !important;
+}
+
 .contrast button,
 .contrast input[type=button],
 .contrast input[type=reset],
@@ -81,4 +86,14 @@
     background: black !important;
     border: 1px solid white !important;
     color: white !important;
+}
+
+
+.contrast .sim, .contrast .nao{
+    background-color: black !important;
+}
+
+
+.contrast table.highlight tbody tr:hover {
+    background-color: #4b4b4b !important;
 }

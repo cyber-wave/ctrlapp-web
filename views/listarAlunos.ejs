@@ -15,7 +15,7 @@
             <div class="col s10 offset-s1">
 
 
-                <table id="materialize-table">
+                <table id="materialize-table"  class="striped highlight">
                     <thead>
 
                         <tr>
@@ -39,9 +39,9 @@
                             <td><%= alunos[i].login %></td>
 
                             <% if(alunos[i].ativo){ %>
-                                <td><span class="new badge blue" data-badge-caption="Sim"></span></td>
+                                <td><span class="new badge sim" data-badge-caption="Sim"></span></td>
                               <% } else{ %>  
-                                <td><span class="new badge red" data-badge-caption="Não"></span></td>
+                                <td><span class="new badge nao" data-badge-caption="Não"></span></td>
                              <% } %>
 
 

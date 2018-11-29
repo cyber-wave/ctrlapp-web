@@ -1,10 +1,9 @@
 $(document).ready(function(){
     $('#cadastroTopicos').addClass("active");
     $('input#nome, input#descricao').characterCounter();
+  
 });
         
-
-
 
 $("#cadastroTopicosForm").submit(function (event) {
 

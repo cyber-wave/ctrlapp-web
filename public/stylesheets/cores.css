@@ -4,16 +4,29 @@ PALETA DE CORES
 #25ced1
 #ffffff
 #fde9dd
-#ff8b5c
+#ff8b5c 
 #eb5270
 
 */
+
+.sim, .nao{
+    background-color: #eb5270 !important;
+}
+
+
+table.highlight tbody tr:hover {
+    background-color: #dd889a !important;
+}
 
 .mdl-button--raised.mdl-button--colored{
     background-color: #FF8B5C;
 }
 
-.mdl-button--raised.mdl-button--colored:hover, .mdl-button--raised.mdl-button--colored:active, .mdl-button--raised.mdl-button--colored:focus {
+.mdl-button--raised.mdl-button--colored:hover, .mdl-button--raised.mdl-button--colored:active, .mdl-button--raised.mdl-button--colored:focus, .mdl-button--raised.mdl-button--colored:visited {
+    background-color: #e97040;
+}
+
+.mdl-button--raised.mdl-button--colored:focus:not(:active){
     background-color: #e97040;
 }
 
@@ -59,7 +72,7 @@ a{
 }
 
 .toastSucesso{
-    background-color: #66bb6a ;
+    background-color: #4f8652 ;
     color:#EFEFEF;
 }
 

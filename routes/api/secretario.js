@@ -76,6 +76,17 @@ router.post('/login', (req, res, next) => {
 });
 
 
+/* Logout do secretário */
+router.get('/logout', (req, res, next) => {
+
+    req.session.secretario = null;
+    res.render('login', {
+        title: "Login do secretário"
+    });
+
+});
+
+
 /**
  * Cadastra um novo secretario
  */
