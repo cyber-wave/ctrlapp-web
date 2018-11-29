@@ -46,6 +46,7 @@ app.use(function (req, res, next) {
 
 app.use('/api', apiRouter); //mobile
 
+/*
 app.use(function (req, res, next) {
 
   if (req.session.secretario) {
@@ -58,6 +59,7 @@ app.use(function (req, res, next) {
     });
   }
 });
+*/
 
 //ROUTES
 app.use('/', homeRouter);
