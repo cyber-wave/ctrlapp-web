@@ -74,6 +74,29 @@ router.post("/", checarCPF, (req, res, next) => {
         })
     });
 });
+
+/**
+ * Pegar topicos de professor
+ */
+router.get("/topicos", (req, res, next)=>{
+    ProfessorDAO.find({}).exec()
+    .then(professores => {
+        if(professores === null){
+            res.sendStatus(500);
+            return;
+        }
+        let topicos = [];
+        professores.forEach(prof => {
+            topicos.push(prof.topicoPrivado);
+        });
+        res.status(200).json({
+            topicos: topicos
+        });
+    })
+    .catch(err =>{
+        res.sendStatus(500);
+    })
+})
 /**
  * Atualiza o TokenFCM do professor apenas
  */

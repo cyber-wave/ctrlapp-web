@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var secure = require('express-force-https');
 var session = require('express-session');
+var cron = require('node-cron');
+var PresencaDAO = require('./models/presencaProfessor/presencaProfessorDAO');
 
 var homeRouter = require('./routes/home');
 var topicosRouter = require('./routes/topicos');
@@ -73,7 +75,22 @@ app.use('/professores', professoresRouter);
 app.use('/secretarios', secretariosRouter);
 
 
-
+cron.schedule('0 0 * * *', () =>{
+  console.log("Iniciando CRON job...");
+  
+    PresencaDAO.deleteMany({}).exec()
+    .then(() => {
+      console.log("Presenca limpa.");
+      
+    })
+    .catch(err =>{
+      console.error("CRON job failure");
+      console.error(err);
+      
+    })
+}, {
+  timezone: "America/Fortaleza"
+})
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
