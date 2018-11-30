@@ -238,7 +238,9 @@ router.post("/:siape/checkout", (req, res, next) =>{
 router.get("/noBloco", (req, res, next) =>{
     PresencaDAO.find({}).exec()
     .then(profs => {
-        if(profs == null){
+        console.log(profs);
+        
+        if(profs === null){
             res.status(500).json({
                 mensagem: "ninguem no bloco"
             });
@@ -262,7 +264,8 @@ router.post("/:siape/mensagem", (req, res, next)=>{
         siape: req.params.siape
     }).exec()
     .then(professor =>{
-        if(professor == null){
+        console.log(`topico: ${professor.topicoPrivado}`);
+        if(professor === null){
             res.status(500).json({
                 mensagem: "professor nao existe"
             });
