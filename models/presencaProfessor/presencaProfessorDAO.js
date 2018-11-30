@@ -10,5 +10,5 @@ var PresencaProfessorSchema = new mongoose.Schema({
     professor: {type: String, required: true}
 });
 
-var PresencaProfessorModel = connect_db.model("PresencaProfessor", PresencaProfessorSchema);
+var PresencaProfessorModel = connect_db.model("PresencaProfessor", PresencaProfessorSchema, "presencaprofessors");
 module.exports = PresencaProfessorModel;

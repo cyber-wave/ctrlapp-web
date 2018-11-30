@@ -89,7 +89,7 @@ cron.schedule('0 0 * * *', () =>{
       
     })
 }, {
-  timezone: "America/Fortaleza"
+  timezone: "America/Sao_Paulo"
 })
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

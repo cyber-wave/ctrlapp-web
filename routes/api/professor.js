@@ -28,19 +28,7 @@ router.get("/", (req,res,next) =>{
         res.sendStatus(500);
     });
 });
-/**
- * Pega um professor pela siape
- */
-router.get("/:siape", (req, res, next) =>{
-    ProfessorDAO.findOne({siape: req.params.siape})
-    .select("nome email cpf tokenFCM siape topicosInscritos cadastroCompleto topicoPrivado").exec()
-    .then(data => {
-        res.status(200).json(data);
-    })
-    .catch(err => {
-        res.status(404).json({});
-    });
-});
+
 
 /**
  * Realiza o precadastro do professor
@@ -259,6 +247,8 @@ router.post("/:siape/checkout", (req, res, next) =>{
 });
 
 router.get("/noBloco", (req, res, next) =>{
+    console.log("log");
+    
     PresencaDAO.find({}).exec()
     .then(profs => {
         console.log(profs);
@@ -314,7 +304,21 @@ router.post("/:siape/mensagem", (req, res, next)=>{
             causa: err
         });
     })
-})
+});
+
+/**
+ * Pega um professor pela siape
+ */
+router.get("/:siape", (req, res, next) =>{
+    ProfessorDAO.findOne({siape: req.params.siape})
+    .select("nome email cpf tokenFCM siape topicosInscritos cadastroCompleto topicoPrivado").exec()
+    .then(data => {
+        res.status(200).json(data);
+    })
+    .catch(err => {
+        res.status(404).json({});
+    });
+});
 
 
 module.exports = router;
