@@ -232,64 +232,63 @@ router.post("/:siape/checkout", (req, res, next) =>{
             causa: err
         });
     });
+    
+});
 
-    router.get("/noBloco", (req, res, next) =>{
-        PresencaDAO.find({}).exec()
-        .then(profs => {
-            if(profs == null){
-                res.status(500).json({
-                    mensagem: "ninguem no bloco"
-                });
-            } else {
-                res.status(200).json({
-                    professores: profs
-                });
-            }
-            
-        })
-        .catch(err => {
+router.get("/noBloco", (req, res, next) =>{
+    PresencaDAO.find({}).exec()
+    .then(profs => {
+        if(profs == null){
             res.status(500).json({
-                mensagem: "Nao foi possivel obter professores no bloco",
-                causa: err
+                mensagem: "ninguem no bloco"
             });
+        } else {
+            res.status(200).json({
+                professores: profs
+            });
+        }
+        
+    })
+    .catch(err => {
+        res.status(500).json({
+            mensagem: "Nao foi possivel obter professores no bloco",
+            causa: err
         });
     });
+});
 
-    router.post("/:siape/mensagem", (req, res, next)=>{
-        ProfessorDAO.findOne({
-            siape: req.params.siape
-        }).exec()
-        .then(professor =>{
-            if(professor == null){
-                res.status(500).json({
-                    mensagem: "professor nao existe"
-                });
-                return;
-            }
-            NotificationPusher.pushToTopic(req.body.titulo, req.body.mensagem,professor.topicoPrivado)
-            .then(() =>{
-                res.status(200).json({
-                    mensagem: "enviado com sucesso"
-                });
-            })
-            .catch(err =>{
-                res.status(500).json({
-                    mensagem: "erro ao enviar mensagem",
-                    causa: err
-                });
-                console.log(err);
-            })
+router.post("/:siape/mensagem", (req, res, next)=>{
+    ProfessorDAO.findOne({
+        siape: req.params.siape
+    }).exec()
+    .then(professor =>{
+        if(professor == null){
+            res.status(500).json({
+                mensagem: "professor nao existe"
+            });
+            return;
+        }
+        NotificationPusher.pushToTopic(req.body.titulo, req.body.mensagem,professor.topicoPrivado)
+        .then(() =>{
+            res.status(200).json({
+                mensagem: "enviado com sucesso"
+            });
         })
         .catch(err =>{
             res.status(500).json({
-                mensagem: "erro ao conectar db",
+                mensagem: "erro ao enviar mensagem",
                 causa: err
             });
+            console.log(err);
         })
     })
-
-    
-});
+    .catch(err =>{
+        res.status(500).json({
+            mensagem: "erro ao conectar db",
+            causa: err
+        });
+    })
+})
 
 
 module.exports = router;
