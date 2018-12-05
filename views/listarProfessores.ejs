@@ -21,10 +21,9 @@
                         <tr>
                             <th>Nome</th>
                             <th>Email</th>
-                            <th>CPF</th>
                             <th>Siape</th>
                             <th>Login</th>
-                            <th>Ativo</th>
+                            <th>Status</th>
                         </tr>
 
                     </thead>
@@ -34,14 +33,13 @@
                         <tr> 
                             <td><%= professores[i].nome %></td>
                             <td><%= professores[i].email %></td>
-                            <td><%= professores[i].cpf %></td>
                             <td><%= professores[i].siape %></td>
                             <td><%= professores[i].login %></td>
 
                             <% if(professores[i].ativo){ %>
-                                <td><span class="new badge sim" data-badge-caption="Sim"></span></td>
+                                <td><span class="new badge sim" data-badge-caption="Ativo"></span></td>
                               <% } else{ %>  
-                                <td><span class="new badge nao" data-badge-caption="Não"></span></td>
+                                <td><span class="new badge nao" data-badge-caption="Inativo"></span></td>
                             <% } %>
                         </tr>
                         <% } %>

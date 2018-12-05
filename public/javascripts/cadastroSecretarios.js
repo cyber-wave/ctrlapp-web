@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('#cadastroSecretarios').addClass("active");
-    $('input#login').characterCounter();
+    $('#login').characterCounter();
 });
         
 
@@ -35,10 +35,12 @@ $("#cadastroSecretariosForm").submit(function (event) {
                 $("#envioFormulario").val("Enviando...");
             },
             success: function (data) {
-                M.toast({ html: 'Secretário cadastrado com sucesso!', classes: 'toastSucesso rounded' });
+                M.toast({ html: 'Secretário '+ nome +' cadastrado com sucesso!', classes: 'toastSucesso rounded', displayLength: 10000 });
+                alert('Secretário '+ nome +' cadastrado com sucesso!');
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                M.toast({ html: 'Falha ao cadastrar secretários', classes: 'toastFalha rounded' });
+                M.toast({ html: 'Falha ao cadastrar secretário ' + nome, classes: 'toastFalha rounded', displayLength: 10000 });
+                alert('Falha ao cadastrar secretário ' + nome);
             },
             complete: function () {
                 $("#envioFormulario").val("Enviar");

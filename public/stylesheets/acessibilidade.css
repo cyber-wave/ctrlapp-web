@@ -39,7 +39,7 @@
 
 
 /* LINKS E OPÇÕES DE AÇÃO */
-.contrast a{
+.contrast a, .contrast a:visited, .contrast a:focus {
     color: yellow !important;
 }
 

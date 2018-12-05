@@ -30,10 +30,12 @@ $("#cadastroTopicosForm").submit(function (event) {
                 $("#envioFormulario").val("Enviando...");
             },
             success: function (data) {
-                M.toast({ html: 'Tópico criado com sucesso!', classes: 'toastSucesso rounded' });
+                M.toast({ html: 'Tópico ' + descricao + ' criado com sucesso!', classes: 'toastSucesso rounded', displayLength: 10000 });
+                alert('Tópico ' + descricao + ' criado com sucesso!');
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                M.toast({ html: 'Falha ao criar tópico', classes: 'toastFalha rounded' });
+                M.toast({ html: 'Falha ao criar tópico ' + descricao, classes: 'toastFalha rounded' });
+                alert('Falha ao criar tópico ' + descricao);
             },
             complete: function () {
                 $("#envioFormulario").val("Enviar");

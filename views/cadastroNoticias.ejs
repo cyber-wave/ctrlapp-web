@@ -17,7 +17,7 @@
                     <div class="row">
                         <div class="input-field">
                             <select name="topico" id="topico">
-                                <option value="" disabled selected></option>
+                                <option value="" disabled selected>Selecione um tópico</option>
 
                                 <% for(var i=0; i<topicos.length; i++) {%>
                                     <tr> 
@@ -26,26 +26,26 @@
                                 <% } %>
                                 
                             </select>
-                            <label>Tópico</label>
+                            <label>Tópico da notícia</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field">
                             <input id="titulo" name="titulo" type="text" data-length="60" maxlength="60">
-                            <label for="titulo">Título</label>
+                            <label for="titulo">Título da notícia</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field">
                             <textarea id="corpo" name="corpo" class="materialize-textarea" data-length="280" maxlength="280"></textarea>
-                            <label for="corpo">Corpo</label>
+                            <label for="corpo">Corpo da notícia</label>
                         </div>
                     </div>
 
                     <div class="row center-align">
-                        <button type="submit" class="btn waves-effect spread-button-primary uk-width-1-2 spread-button-width" id="envioFormulario">Enviar</button>
+                        <button type="submit" class="btn waves-effect spread-button-primary uk-width-1-2 spread-button-width" id="envioFormulario">Enviar notícia</button>
                     </div>
 
                 </form>

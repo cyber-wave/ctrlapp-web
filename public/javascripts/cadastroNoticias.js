@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('#cadastroNoticias').addClass("active");
     $('select').formSelect();
-    $('input#titulo, textarea#corpo').characterCounter();
+    $('#titulo, #corpo').characterCounter();
 });
 
 
@@ -32,10 +32,12 @@ $("#noticiasForm").submit(function (event) {
                 $("#envioFormulario").val("Enviando...");
             },
             success: function (data) {
-                M.toast({ html: 'Notícia enviada com sucesso!', classes: 'toastSucesso rounded' });
+                M.toast({ html: 'Notícia ' + titulo + ' enviada com sucesso!', classes: 'toastSucesso rounded', displayLength: 10000 });
+                alert('Notícia ' + titulo + ' enviada com sucesso!');
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                M.toast({ html: 'Falha ao enviar notícia', classes: 'toastFalha rounded' });
+                M.toast({ html: 'Falha ao enviar notícia ' + titulo, classes: 'toastFalha rounded', displayLength: 10000 });
+                alert('Falha ao enviar notícia ' + titulo)
             },
             complete: function () {
                 $("#envioFormulario").val("Enviar");
