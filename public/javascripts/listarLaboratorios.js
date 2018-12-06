@@ -1,4 +1,4 @@
 $(document).ready(function(){
-    $('#listarLaboratorios').addClass("active");
+    $('#acessoLaboratorios').addClass("active");
 });
         
