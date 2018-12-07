@@ -10,9 +10,28 @@ var $ = jQuery = require('jquery')(window);
 
 
 router.get('/listar', function(req,res,next){
-    res.status(200).render('listarLaboratorios',{
-        title: 'Acesso de laboratórios'
-    })
+ 
+
+    var url = "http://" + req.headers.host + "/api/laboratorio/";
+
+    $.ajax({
+        url: url,
+        type: 'GET',
+        datatype: 'JSON',
+
+        success: function (data) {
+            //console.log(data);
+            res.status(200).render('listarLaboratorios',{
+                title: 'Acesso de laboratórios',
+                laboratorios: data.laboratorios,
+                acessos: null
+            })
+        },
+        error: function (error) {
+
+        },
+    });
+
 });
 
 

@@ -9,6 +9,7 @@ var cron = require('node-cron');
 var PresencaDAO = require('./models/presencaProfessor/presencaProfessorDAO');
 
 var homeRouter = require('./routes/home');
+var controleRouter = require('./routes/controle');
 var topicosRouter = require('./routes/topicos');
 var requisicoesRouter = require('./routes/requisicoes');
 var laboratoriosRouter = require('./routes/laboratorios');
@@ -65,6 +66,7 @@ app.use(function (req, res, next) {
 
 //ROUTES
 app.use('/', homeRouter);
+app.use('/controle', controleRouter);
 app.use('/noticias', noticiasRouter);
 app.use('/login', loginRouter);
 app.use('/laboratorios', laboratoriosRouter);

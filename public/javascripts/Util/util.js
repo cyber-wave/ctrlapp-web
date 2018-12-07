@@ -1,7 +1,7 @@
 
 
 function serverPorta() {
-    return "https://" + window.location.hostname + ":" + window.location.port;
+    return "http://" + window.location.hostname + ":" + window.location.port;
 }
 
 
@@ -96,7 +96,7 @@ function formataData(data) {
         dia = data.getDate().toString().padStart(2, '0'),
         mes = (data.getMonth() + 1).toString().padStart(2, '0'), //+1 pois no getMonth Janeiro começa com zero.
         ano = data.getFullYear(),
-        //data.setHours(data.getHours() -1),
+        //data.setHours(data.getHours() -1),    //Serve para adicionar fuso horário ou horário de verão
         horas = data.getHours(),
         minutos = data.getMinutes(),
         //  horas = horas % 12,
@@ -109,4 +109,6 @@ function formataData(data) {
 
 
 
-
+$( ".timestamp" ).each(function( index ) {
+    $( this ).text(converterData($(this).text()));
+});

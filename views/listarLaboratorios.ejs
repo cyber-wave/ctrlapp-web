@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
+<% include ../public/fragments/dependencias/dependenciasCSS %>
 <% include ../public/fragments/header %>
+
 </head>
 
 
@@ -15,17 +17,38 @@
 
     <main id="content">
         <div class="row section">
-            <div class="col s12 ">
+            <div class="col s10 offset-s1">
 
+                <div class="row">
 
+                    <% for(var i=0; i<laboratorios.length; i++) {%>
+
+                    <div class="col s12 m4">
+                        <div class="card cor1">
+                            <div class="card-content white-text">
+                                <span class="card-title">
+                                    <%= laboratorios[i].nome %></span>
+                                <!-- <span class="card-title"><%= laboratorios[i].id %></span>-->
+                            </div>
+                            <div class="card-action">
+                                <a class="cor2 modal-trigger accessLab" data-id=<%=laboratorios[i]._id %> data-nome=<%=laboratorios[i].nome %>
+                                    href="#modalLab">Acessar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } %>
+
+                </div>
 
             </div>
         </div>
     </main>
 
-
+    <% include ../public/fragments/modal/modalLab %>
     <% include ../public/fragments/footer %>
     <% include ../public/fragments/javascripts %>
+    <% include ../public/fragments/dependencias/dependenciasJS %>
     <script src="/javascripts/listarLaboratorios.js"></script>
 
 

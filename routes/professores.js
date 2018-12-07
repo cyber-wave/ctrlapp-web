@@ -25,7 +25,7 @@ router.get('/listar', function (req, res, next) {
                 professores: data.professores
             })
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error: function (error) {
 
         },
     });

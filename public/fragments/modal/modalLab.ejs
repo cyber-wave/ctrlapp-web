@@ -1,0 +1,80 @@
+<div id="modalLab" class="modal">
+
+
+    <div class="modal-content">
+        <h4 id="tituloModal"></h4>
+
+        <div class="row">
+
+            <form id="modalForm">
+
+                <div class="col s6">
+                    <div class="input-field">
+                        <input id="nomePessoa" name="nomePessoa" type="text" data-length="100" maxlength="100">
+                        <label for="nomePessoa">Nome da pessoa</label>
+                    </div>
+                </div>
+
+                <div class="col s2">
+                    <div class="input-field">
+                        <input id="matricula" name="matricula" type="text" data-length="20" maxlength="20">
+                        <label for="matricula">Matrícula</label>
+                    </div>
+                </div>
+
+                <div class="col s2">
+                    <div class="input-field">
+                        <input id="telefone" name="telefone" type="text" data-length="11" maxlength="11">
+                        <label for="telefone">Telefone</label>
+                    </div>
+                </div>
+
+                <div class="col s2">
+                    <div class="input-field">
+                        <button type="submit" class="btn waves-effect spread-button-primary" id="envioFormulario">Adicionar
+                            acesso</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="row">
+            <div>
+                <table id="materialize-table" class="striped highlight" data-order="[[ 3, &quot;asc&quot; ]]">
+                    <thead>
+
+                        <tr>
+                            <th>Nome</th>
+                            <th>Matrícula</th>
+                            <th>Telefone</th>
+                            <th>Data do acesso</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody> 
+                        <% if (acessos && acessos.length != 0) { %>
+                        <% for(var i=0; i<acessos.length; i++) {%>
+                        <tr id="teste">
+                            <td>
+                                <%= acessos[i].nomePessoa %>
+                            </td>
+                            <td>
+                                <%= acessos[i].matricula %>
+                            </td>
+                            <td>
+                                <%= acessos[i].telefone %>
+                            </td>
+                            <td class="timestamp">
+                                <%= acessos[i].timestamp %>
+                            </td>
+                        </tr>
+                        <% } %>
+                        <% } %>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>

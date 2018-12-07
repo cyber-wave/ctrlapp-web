@@ -9,6 +9,15 @@ PALETA DE CORES
 
 */
 
+
+.cor1{
+    background-color: #178082;
+}
+
+.cor2{
+    color: #ff8b5c;
+}
+
 .sim, .nao{
     background-color: #eb5270 !important;
 }

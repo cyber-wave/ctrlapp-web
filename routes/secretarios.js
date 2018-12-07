@@ -32,7 +32,7 @@ router.get('/listar', function(req,res,next){
                 secretarios: data.secretarios
             })
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error: function (error) {
 
         },
     });

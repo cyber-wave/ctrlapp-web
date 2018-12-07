@@ -26,7 +26,7 @@ router.get('/envio', function (req, res, next) {
                 topicos: data.topicos
             })
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error: function (error) {
 
         },
     });

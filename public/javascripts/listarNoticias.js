@@ -3,6 +3,3 @@ $(document).ready(function () {
 });
 
 
-$( ".timestamp" ).each(function( index ) {
-    $( this ).text(converterData($(this).text()));
-});
