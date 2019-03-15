@@ -23,8 +23,30 @@ $("#modalLab").modal({
             datatype: 'JSON',
     
             success: function (data) {
+
                 console.log(data);
-                $("#teste").html(data);
+
+                if ( $.fn.dataTable.isDataTable( '#materialize-table' ) ) {
+                    table = $('#materialize-table').DataTable();
+                }
+
+                table.destroy();
+        
+
+                $('#materialize-table').DataTable( {
+                    "ajax": data.acessos,
+                    "dataSrc": "",
+                    "columns": [
+                        { "data.acessos": "nomePessoa" },
+                        { "data.acessos": "matricula" },
+                        { "data.acessos": "telefone" },
+                        { "data.acessos": "timestamp" }
+                    ]
+                } );
+
+        
+
+
             },
             error: function (error) {
                 console.log(error);

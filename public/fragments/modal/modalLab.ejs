@@ -53,28 +53,13 @@
 
                     </thead>
 
-                    <tbody> 
-                        <% if (acessos && acessos.length != 0) { %>
-                        <% for(var i=0; i<acessos.length; i++) {%>
-                        <tr id="teste">
-                            <td>
-                                <%= acessos[i].nomePessoa %>
-                            </td>
-                            <td>
-                                <%= acessos[i].matricula %>
-                            </td>
-                            <td>
-                                <%= acessos[i].telefone %>
-                            </td>
-                            <td class="timestamp">
-                                <%= acessos[i].timestamp %>
-                            </td>
-                        </tr>
-                        <% } %>
-                        <% } %>
+                    <tbody id="listaAcessos"> 
+
+                        
                     </tbody>
                 </table>
 
             </div>
         </div>
     </div>
+    

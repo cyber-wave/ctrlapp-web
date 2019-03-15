@@ -8,6 +8,7 @@ $(document).ready( function () {
 function iniciaDataTables(){
     $('#materialize-table').DataTable({
         responsive: true,
+        retrieve: true,
         "language": {
             "sEmptyTable":   "Nenhum registro encontrado",
             "sProcessing":   "A processar...",

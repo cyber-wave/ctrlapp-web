@@ -23,8 +23,7 @@ router.get('/listar', function(req,res,next){
             //console.log(data);
             res.status(200).render('listarLaboratorios',{
                 title: 'Acesso de laboratórios',
-                laboratorios: data.laboratorios,
-                acessos: null
+                laboratorios: data.laboratorios
             })
         },
         error: function (error) {
